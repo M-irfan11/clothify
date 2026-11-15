@@ -55,7 +55,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active bg-gradient-dark text-white" href="../pages/tables.html">
+          @can('create post')
+            <a class="nav-link active bg-gradient-dark text-white" href="../pages/tables.html">
+          @endcan
+
+
+            <!-- @can('create post')
+                    <a href="{{ route('products.index') }}" class="btn btn-primary">Products</a>
+                @endcan -->
             <i class="material-symbols-rounded opacity-5">table_view</i>
             <span class="nav-link-text ms-1">Tables</span>
           </a>
