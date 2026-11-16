@@ -38,9 +38,26 @@
         <li class="nav-item">
           <a class="nav-link active bg-gradient-dark text-white" href="../pages/dashboard.html">
             <i class="material-symbols-rounded opacity-5">dashboard</i>
-            <span class="nav-link-text ms-1">Dashboard</span>
+            <span class="nav-link-text ms-1" href="{{ route('home') }}">Dashboard</span>
           </a>
         </li>
+        {{-- <li class="nav-item">
+            <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+        </li> --}}
+
+        @role('admin')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
+        </li>
+        @endrole
+
+        @hasanyrole('admin|editor')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
+        </li>
+        @endhasanyrole
+
+
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/tables.html">
             <i class="material-symbols-rounded opacity-5">table_view</i>
