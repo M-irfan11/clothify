@@ -45,11 +45,16 @@
             <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
         </li> --}}
 
-        @role('admin')
+        {{-- @role('admin') --}}
+        @can('manage users')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
         </li>
-        @endrole
+        @endcan
+        {{-- @endrole --}}
+
+        {{-- @role('admin|editor') --}}
+        {{-- @endrole --}}
 
         @hasanyrole('admin|editor')
         <li class="nav-item">
