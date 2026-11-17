@@ -43,7 +43,7 @@ class RollPermissionSeeder extends Seeder
 
         // প্রথম Admin user
         $adminUser = User::firstOrCreate(
-            ['email' => 'admin@example.com'],
+            ['email' => 'web.irfan@yahoo.com'],
             [
                 'name' => 'Admin',
                 'password' => bcrypt('password'),

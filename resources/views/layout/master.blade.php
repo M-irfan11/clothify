@@ -87,6 +87,15 @@
         </li>
         @endauth
 
+         @auth
+        <li class="nav-item">
+            <a class="{{ request()->routeIs('products.*') ? 'nav-link active bg-gradient-dark text-white' : 'nav-link text-dark' }}" href="{{ route('products.index') }}">
+              <i class="material-symbols-rounded opacity-5">inventory_2</i>
+              <span class="nav-link-text ms-1">Products</span>
+            </a>
+        </li>
+        @endauth
+
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/tables.html">
             <i class="material-symbols-rounded opacity-5">table_view</i>

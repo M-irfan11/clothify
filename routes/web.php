@@ -7,6 +7,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'role:admin|editor'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('suppliers', SupplierController::class);
     Route::resource('materials', MaterialController::class);
+    Route::resource('products', ProductsController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
