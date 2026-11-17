@@ -36,9 +36,9 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active bg-gradient-dark text-white" href="../pages/dashboard.html">
+          <a class="{{ request()->routeIs('home') ? 'nav-link active bg-gradient-dark text-white' : 'nav-link text-dark' }}" href="{{ route('home') }}">
             <i class="material-symbols-rounded opacity-5">dashboard</i>
-            <span class="nav-link-text ms-1" href="{{ route('home') }}">Dashboard</span>
+            <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
         {{-- <li class="nav-item">
@@ -62,6 +62,30 @@
         </li>
         @endhasanyrole
 
+        <li class="nav-item">
+            <a class="{{ request()->routeIs('warehouses.*') ? 'nav-link active bg-gradient-dark text-white' : 'nav-link text-dark' }}" href="{{ route('warehouses.index') }}">
+              <i class="material-symbols-rounded opacity-5">warehouse</i>
+              <span class="nav-link-text ms-1">Warehouses</span>
+            </a>
+        </li>
+
+        @auth
+        <li class="nav-item">
+            <a class="{{ request()->routeIs('suppliers.*') ? 'nav-link active bg-gradient-dark text-white' : 'nav-link text-dark' }}" href="{{ route('suppliers.index') }}">
+              <i class="material-symbols-rounded opacity-5">local_shipping</i>
+              <span class="nav-link-text ms-1">Suppliers</span>
+            </a>
+        </li>
+        @endauth
+
+        @auth
+        <li class="nav-item">
+            <a class="{{ request()->routeIs('materials.*') ? 'nav-link active bg-gradient-dark text-white' : 'nav-link text-dark' }}" href="{{ route('materials.index') }}">
+              <i class="material-symbols-rounded opacity-5">inventory_2</i>
+              <span class="nav-link-text ms-1">Materials</span>
+            </a>
+        </li>
+        @endauth
 
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/tables.html">
