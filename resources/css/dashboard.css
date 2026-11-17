@@ -1,0 +1,7 @@
+@tailwind utilities;
+
+:root {
+    --tw-gradient-from-position: 0%;
+    --tw-gradient-via-position: 50%;
+    --tw-gradient-to-position: 100%;
+}

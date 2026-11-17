@@ -64,4 +64,6 @@
                     <a href="{{ route('products.show', $product) }}" class="btn btn-outline-secondary mb-0">Cancel</a>
                 </form>
             </div>
-        </div> 
+        </div>
+    </div>
+@endsection
