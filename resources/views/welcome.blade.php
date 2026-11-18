@@ -38,12 +38,12 @@
       <section class="h-full rounded-lg bg-white p-4 shadow-sm">
         <div class="flex flex-wrap items-start justify-between gap-2">
           <div>
-            <h2 class="mb-1 text-[0.82rem] font-semibold text-[#344767]">AP and AR Balance</h2>
+            <h2 class="mb-1 text-[0.82rem] font-semibold leading-6 tracking-normal text-[#344767]">AP and AR Balance</h2>
             <p class="mb-0 text-[0.7rem] text-[#8a94a6]">Avg. $5,309</p>
           </div>
           <div class="flex gap-2">
-            <button class="rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085]" type="button">Monthly</button>
-            <button class="rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085]" type="button">Last Year</button>
+            <button class="cursor-pointer rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Monthly</button>
+            <button class="cursor-pointer rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Last Year</button>
           </div>
         </div>
         <svg class="mt-2 block h-auto w-full" viewBox="0 0 700 285" role="img" aria-label="Monthly AP and AR balance chart">
@@ -94,7 +94,7 @@
 
     <div class="min-w-0 lg:col-span-1">
       <section class="flex h-full flex-col rounded-lg bg-white p-4 shadow-sm">
-        <h2 class="mb-3 text-[0.82rem] font-semibold text-[#344767]">% of Income Budget</h2>
+        <h2 class="mb-3 text-[0.82rem] font-semibold leading-6 tracking-normal text-[#344767]">% of Income Budget</h2>
         <div class="relative mx-auto mb-3 grid aspect-square w-[min(108px,86%)] place-items-center" role="img" aria-label="67 percent of income budget">
           <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 100 100" aria-hidden="true">
             <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" class="stroke-[#e9edf4]" />
@@ -106,13 +106,13 @@
           <span>Balance</span>
           <span>$18,570</span>
         </div>
-        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline hover:underline" href="{{ route('products.index') }}">View Full Report</a>
+        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline transition-colors hover:text-[#a16dca] hover:underline" href="{{ route('products.index') }}">View Full Report</a>
       </section>
     </div>
 
     <div class="min-w-0 lg:col-span-1">
       <section class="flex h-full flex-col rounded-lg bg-white p-4 shadow-sm">
-        <h2 class="mb-3 text-[0.82rem] font-semibold text-[#344767]">% of Expenses Budget</h2>
+        <h2 class="mb-3 text-[0.82rem] font-semibold leading-6 tracking-normal text-[#344767]">% of Expenses Budget</h2>
         <div class="relative mx-auto mb-3 grid aspect-square w-[min(108px,86%)] place-items-center" role="img" aria-label="48 percent of expenses budget">
           <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 100 100" aria-hidden="true">
             <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" class="stroke-[#e9edf4]" />
@@ -124,7 +124,7 @@
           <span>Balance</span>
           <span>$31,430</span>
         </div>
-        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline hover:underline" href="{{ route('materials.index') }}">View Full Report</a>
+        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline transition-colors hover:text-[#a16dca] hover:underline" href="{{ route('materials.index') }}">View Full Report</a>
       </section>
     </div>
   </div>
@@ -132,11 +132,11 @@
   <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
     <section class="min-w-0 rounded-lg bg-white p-4 shadow-sm lg:col-span-2">
       <div class="flex flex-wrap items-center justify-between gap-3">
-        <h2 class="text-sm font-semibold text-[#344767]">Monthly Income stats for November 2020</h2>
+        <h2 class="text-sm font-semibold leading-6 tracking-normal text-[#344767]">Monthly Income stats for November 2020</h2>
         <div class="flex gap-1 rounded bg-[#f3f6fb] p-1 text-[0.65rem] text-[#667085]">
-          <button class="rounded px-2 py-1" type="button">Today</button>
-          <button class="rounded bg-white px-2 py-1 font-medium shadow-sm" type="button">Weekly</button>
-          <button class="rounded px-2 py-1" type="button">Monthly</button>
+          <button class="cursor-pointer rounded px-2 py-1 transition-colors hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Today</button>
+          <button class="cursor-pointer rounded bg-white px-2 py-1 font-medium shadow-sm transition-colors hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Weekly</button>
+          <button class="cursor-pointer rounded px-2 py-1 transition-colors hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Monthly</button>
         </div>
       </div>
 
@@ -192,11 +192,11 @@
 
       <div class="mt-2 grid grid-cols-1 gap-3 border-t border-[#eef0f4] pt-3 text-xs sm:grid-cols-3">
         <div>
-          <p class="mb-1 font-medium text-[#344767]">$12,253 <span class="text-[#80cdb2]">↗ 2.2%</span></p>
+          <p class="mb-1 font-medium text-[#344767]">$12,253 <span class="text-[#4b75e8]">↗ 2.2%</span></p>
           <p class="mb-0 text-[0.65rem] text-[#8a94a6]">This month</p>
         </div>
         <div>
-          <p class="mb-1 font-medium text-[#344767]"><span class="mr-1 text-[#a16dca]">●</span>This Year: $34,254 <span class="text-[#80cdb2]">↗ 2.1%</span></p>
+          <p class="mb-1 font-medium text-[#344767]"><span class="mr-1 text-[#a16dca]">●</span>This Year: $34,254 <span class="text-[#4b75e8]">↗ 2.1%</span></p>
           <p class="mb-0 text-[0.65rem] text-[#8a94a6]">Year to date</p>
         </div>
         <div>
@@ -231,7 +231,7 @@
 
   <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
     <section class="rounded-lg bg-white p-4 shadow-sm">
-      <h2 class="mb-4 text-sm font-semibold text-[#344767]">Users according to packages</h2>
+      <h2 class="mb-4 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Users according to packages</h2>
       <div class="overflow-x-auto">
         <table class="w-full border-collapse text-left text-xs">
           <thead>
@@ -259,7 +259,7 @@
     </section>
 
     <section class="rounded-lg bg-white p-4 shadow-sm">
-      <h2 class="mb-5 text-sm font-semibold text-[#344767]">Overview</h2>
+      <h2 class="mb-5 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Overview</h2>
       <div class="space-y-5">
         <div class="flex items-center gap-3">
           <span class="w-24 shrink-0 text-xs text-[#667085]">Active Listings</span>
@@ -278,19 +278,125 @@
         <div class="flex items-center gap-3">
           <span class="w-24 shrink-0 text-xs text-[#667085]">Reported Listings</span>
           <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
-            <div class="h-full w-[55%] rounded-full bg-[#ef78a9]"></div>
+            <div class="h-full w-[55%] rounded-full bg-[#4b8cf5]"></div>
             <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">55%</span>
           </div>
         </div>
         <div class="flex items-center gap-3">
           <span class="w-24 shrink-0 text-xs text-[#667085]">Pending Listings</span>
           <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
-            <div class="h-full w-[25%] rounded-full bg-[#63d4df]"></div>
+            <div class="h-full w-[25%] rounded-full bg-[#a16dca]"></div>
             <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">25%</span>
           </div>
         </div>
       </div>
     </section>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <section class="rounded-xl border border-[#eef0f4] bg-white p-5 shadow-sm">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <h2 class="mb-1 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Revenue by Category</h2>
+          <p class="mb-0 text-xs text-[#8a94a6]">Sales breakdown this month</p>
+        </div>
+        <button class="cursor-pointer rounded-lg border border-[#e9edf3] px-3 py-1.5 text-xs text-[#667085] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a16dca]" type="button">Monthly</button>
+      </div>
+      <div class="flex flex-col items-center gap-5 py-5 sm:flex-row sm:justify-center sm:gap-8">
+        <div class="relative grid place-items-center" style="width: 160px; height: 160px; flex: 0 0 160px;" role="img" aria-label="Revenue of $39,070: clothing 65 percent, footwear 35 percent">
+          <svg width="160" height="160" viewBox="0 0 100 100" style="position: absolute; inset: 0; transform: rotate(-90deg);" aria-hidden="true">
+            <circle cx="50" cy="50" r="43" fill="none" stroke="#eef0f4" stroke-width="10" />
+            <circle cx="50" cy="50" r="43" fill="none" stroke="#4b75e8" stroke-width="10" stroke-dasharray="175.6 270.2" />
+            <circle cx="50" cy="50" r="43" fill="none" stroke="#a16dca" stroke-width="10" stroke-dasharray="94.6 270.2" stroke-dashoffset="-175.6" />
+          </svg>
+          <span class="relative text-center text-lg font-bold leading-tight text-[#344767]">$39,070<small class="block text-xs font-normal text-[#8a94a6]">Revenue</small></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-3 text-xs text-[#667085] sm:flex-col">
+          <span><span class="mr-1 text-[#4b75e8]">●</span>Clothing <strong class="font-medium">65%</strong></span>
+          <span><span class="mr-1 text-[#a16dca]">●</span>Footwear <strong class="font-medium">35%</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-xl border border-[#eef0f4] bg-white p-5 shadow-sm">
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <div>
+          <h2 class="mb-1 text-sm font-semibold leading-6 tracking-normal text-[#344767]">New Customers</h2>
+          <p class="mb-0 text-xs text-[#8a94a6]">Your latest customers</p>
+        </div>
+        <a class="text-xs font-medium text-[#4b75e8] no-underline transition-colors hover:text-[#a16dca] hover:underline" href="{{ route('users.index') }}">View all</a>
+      </div>
+      <div class="divide-y divide-[#eef0f4]">
+        <div class="flex items-center gap-3 py-2.5">
+          <span class="grid shrink-0 place-items-center bg-[#4b75e8] text-xs font-semibold text-white" style="width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%;" aria-hidden="true">ST</span>
+          <div class="min-w-0 flex-1">
+            <p class="mb-0 truncate text-xs font-medium text-[#344767]">Shams Tabrizi</p>
+            <p class="mb-0 truncate text-[0.68rem] text-[#8a94a6]">shams.tabrizi@example.com</p>
+          </div>
+          <span class="rounded-full border border-[#4b75e8] px-2.5 py-1 text-[0.65rem] text-[#4b75e8] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white">Regular</span>
+        </div>
+        <div class="flex items-center gap-3 py-2.5">
+          <span class="grid shrink-0 place-items-center bg-[#a16dca] text-xs font-semibold text-white" style="width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%;" aria-hidden="true">DA</span>
+          <div class="min-w-0 flex-1">
+            <p class="mb-0 truncate text-xs font-medium text-[#344767]">Daniyal Arham</p>
+            <p class="mb-0 truncate text-[0.68rem] text-[#8a94a6]">daniyal.r@example.com</p>
+          </div>
+          <span class="rounded-full border border-[#a16dca] px-2.5 py-1 text-[0.65rem] text-[#a16dca] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white">Wholesale</span>
+        </div>
+        <div class="flex items-center gap-3 py-2.5">
+          <span class="grid shrink-0 place-items-center bg-[#4b75e8] text-xs font-semibold text-white" style="width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%;" aria-hidden="true">MM</span>
+          <div class="min-w-0 flex-1">
+            <p class="mb-0 truncate text-xs font-medium text-[#344767]">Muhammad Murshi</p>
+            <p class="mb-0 truncate text-[0.68rem] text-[#8a94a6]">Murshi.s@example.com</p>
+          </div>
+          <span class="rounded-full border border-[#4b75e8] px-2.5 py-1 text-[0.65rem] text-[#4b75e8] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white">Regular</span>
+        </div>
+        <div class="flex items-center gap-3 py-2.5">
+          <span class="grid shrink-0 place-items-center bg-[#a16dca] text-xs font-semibold text-white" style="width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%;" aria-hidden="true">KW</span>
+          <div class="min-w-0 flex-1">
+            <p class="mb-0 truncate text-xs font-medium text-[#344767]">Khaled bin Walid</p>
+            <p class="mb-0 truncate text-[0.68rem] text-[#8a94a6]">khaled.r@example.com</p>
+          </div>
+          <span class="rounded-full border border-[#a16dca] px-2.5 py-1 text-[0.65rem] text-[#a16dca] transition-colors hover:border-[#a16dca] hover:bg-[#a16dca] hover:text-white">Walk-in</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <article class="rounded-xl border border-[#eef0f4] border-t-4 border-t-[#4b75e8] bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center gap-3">
+        <span class="grid place-items-center bg-[#4b75e8] text-lg font-bold text-white" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%;" aria-hidden="true">✓</span>
+        <h2 class="mb-0 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Completed Payments</h2>
+      </div>
+      <div class="space-y-2">
+        <p class="mb-0 flex items-center gap-1.5 text-xs text-[#8a94a6]">Revenue: <strong class="text-[#4b75e8]">$55,000</strong></p>
+        <p class="mb-0 text-3xl font-bold leading-tight text-[#4b75e8]">200</p>
+        <p class="mb-0 text-xs leading-5 text-[#8a94a6]">Since last week</p>
+      </div>
+    </article>
+    <article class="rounded-xl border border-[#eef0f4] border-t-4 border-t-[#a16dca] bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center gap-3">
+        <span class="grid place-items-center bg-[#a16dca] text-lg font-bold text-white" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%;" aria-hidden="true">!</span>
+        <h2 class="mb-0 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Pending Payments</h2>
+      </div>
+      <div class="space-y-2">
+        <p class="mb-0 flex items-center gap-1.5 text-xs text-[#8a94a6]">Revenue: <strong class="text-[#a16dca]">$35,000</strong></p>
+        <p class="mb-0 text-3xl font-bold leading-tight text-[#a16dca]">40</p>
+        <p class="mb-0 text-xs leading-5 text-[#8a94a6]">Since last week</p>
+      </div>
+    </article>
+    <article class="rounded-xl border border-[#eef0f4] border-t-4 border-t-[#4b75e8] bg-white p-5 shadow-sm">
+      <div class="mb-4 flex items-center gap-3">
+        <span class="grid place-items-center bg-[#4b75e8] text-lg font-bold text-white" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%;" aria-hidden="true">×</span>
+        <h2 class="mb-0 text-sm font-semibold leading-6 tracking-normal text-[#344767]">Failed Payments</h2>
+      </div>
+      <div class="space-y-2">
+        <p class="mb-0 flex items-center gap-1.5 text-xs text-[#8a94a6]">Revenue: <strong class="text-[#4b75e8]">$27,000</strong></p>
+        <p class="mb-0 text-3xl font-bold leading-tight text-[#4b75e8]">5</p>
+        <p class="mb-0 text-xs leading-5 text-[#8a94a6]">Since last week</p>
+      </div>
+    </article>
   </div>
 </div>
 @endsection

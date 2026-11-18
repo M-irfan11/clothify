@@ -19,7 +19,7 @@
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Update User</button>
+                            <button type="submit" class="btn btn-action-edit">Update User</button>
                         </form>
                     </div>
                 </div>

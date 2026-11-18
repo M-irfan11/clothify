@@ -7,7 +7,7 @@
             <h4 class="mb-1">Edit Supplier</h4>
             <p class="text-sm text-secondary mb-0">Update {{ $supplier->company_name }}.</p>
         </div>
-        <a href="{{ route('suppliers.show', $supplier) }}" class="btn btn-outline-dark mb-0">View Supplier</a>
+        <a href="{{ route('suppliers.show', $supplier) }}" class="btn btn-action-view mb-0">View Supplier</a>
     </div>
 
     <div class="card">
@@ -80,7 +80,7 @@
                         @error('address') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn bg-gradient-dark mb-0">Update Supplier</button>
+                <button type="submit" class="btn btn-action-edit mb-0">Update Supplier</button>
                 <a href="{{ route('suppliers.index') }}" class="btn btn-outline-secondary mb-0">Cancel</a>
             </form>
         </div>

@@ -7,7 +7,7 @@
             <h4 class="mb-1">Edit Warehouse</h4>
             <p class="text-sm text-secondary mb-0">Update {{ $warehouse->warehouse_name }}.</p>
         </div>
-        <a href="{{ route('warehouses.show', $warehouse) }}" class="btn btn-outline-dark mb-0">View Warehouse</a>
+        <a href="{{ route('warehouses.show', $warehouse) }}" class="btn btn-action-view mb-0">View Warehouse</a>
     </div>
 
     <div class="card">
@@ -55,7 +55,7 @@
                         @error('address') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn bg-gradient-dark mb-0">Update Warehouse</button>
+                <button type="submit" class="btn btn-action-edit mb-0">Update Warehouse</button>
                 <a href="{{ route('warehouses.index') }}" class="btn btn-outline-secondary mb-0">Cancel</a>
             </form>
         </div>

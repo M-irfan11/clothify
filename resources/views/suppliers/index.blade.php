@@ -56,12 +56,12 @@
                                     </span>
                                 </td>
                                 <td class="align-middle text-end">
-                                    <a href="{{ route('suppliers.show', $supplier) }}" class="text-secondary font-weight-bold text-xs me-2">View</a>
-                                    <a href="{{ route('suppliers.edit', $supplier) }}" class="text-secondary font-weight-bold text-xs me-2">Edit</a>
+                                    <a href="{{ route('suppliers.show', $supplier) }}" class="btn btn-sm btn-action-view mb-0 me-1">View</a>
+                                    <a href="{{ route('suppliers.edit', $supplier) }}" class="btn btn-sm btn-action-edit mb-0 me-1">Edit</a>
                                     <form action="{{ route('suppliers.destroy', $supplier) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-link text-danger text-xs font-weight-bold p-0 mb-0" onclick="return confirm('Delete this supplier?')">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-action-delete mb-0" onclick="return confirm('Delete this supplier?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

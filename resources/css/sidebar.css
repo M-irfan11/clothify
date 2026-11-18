@@ -19,4 +19,43 @@
     .btn.btn-outline-dark:hover {
         @apply from-[#9259bc] to-[#7c3aed] text-white shadow-lg;
     }
+
+    .btn.btn-action-view {
+        @apply border-transparent bg-gradient-to-r from-[#4b75e8] to-[#2563eb] text-white shadow-md shadow-blue-200 transition-all duration-200;
+    }
+
+    .btn.btn-action-view:hover,
+    .btn.btn-action-view:focus-visible {
+        @apply from-[#3b5bdb] to-[#1d4ed8] text-white shadow-lg;
+    }
+
+    .btn.btn-action-view:focus-visible {
+        @apply outline outline-2 outline-offset-2 outline-[#4b75e8];
+    }
+
+    .btn.btn-action-edit {
+        @apply border-transparent bg-gradient-to-r from-[#a16dca] to-[#7c3aed] text-white shadow-md shadow-purple-200 transition-all duration-200;
+    }
+
+    .btn.btn-action-edit:hover,
+    .btn.btn-action-edit:focus-visible {
+        @apply from-[#9259bc] to-[#6d28d9] text-white shadow-lg;
+    }
+
+    .btn.btn-action-edit:focus-visible {
+        @apply outline outline-2 outline-offset-2 outline-[#a16dca];
+    }
+
+    .btn.btn-action-delete {
+        @apply border-transparent bg-gradient-to-r from-[#ef4444] to-[#dc2626] text-white shadow-md shadow-red-200 transition-all duration-200;
+    }
+
+    .btn.btn-action-delete:hover,
+    .btn.btn-action-delete:focus-visible {
+        @apply from-[#dc2626] to-[#b91c1c] text-white shadow-lg;
+    }
+
+    .btn.btn-action-delete:focus-visible {
+        @apply outline outline-2 outline-offset-2 outline-[#ef4444];
+    }
 }

@@ -8,7 +8,7 @@
             </div>
             <div>
                 <a href="{{ route('products.index') }}" class="btn btn-outline-dark mb-0">Back to Products</a>
-                <a href="{{ route('products.edit', $product) }}" class="btn bg-gradient-dark mb-0">Edit Product</a>
+                <a href="{{ route('products.edit', $product) }}" class="btn btn-action-edit mb-0">Edit Product</a>
             </div>
         </div>
 

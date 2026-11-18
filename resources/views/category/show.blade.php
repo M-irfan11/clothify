@@ -41,12 +41,12 @@
                                     <td>{{ $product->febric_type }}</td>
                                     <td>{{ ucfirst($product->status) }}</td>
                                     <td>
-                                        <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-outline-primary">View</a>
-                                        <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                        <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline-block;">
+                                        <a href="{{ route('products.show', $product) }}" class="btn btn-sm btn-action-view mb-0 me-1">View</a>
+                                        <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-action-edit mb-0 me-1">Edit</a>
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-action-delete mb-0" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

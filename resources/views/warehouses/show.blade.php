@@ -13,7 +13,7 @@
         </div>
         <div>
             <a href="{{ route('warehouses.index') }}" class="btn btn-outline-dark mb-0">Back</a>
-            <a href="{{ route('warehouses.edit', $warehouse) }}" class="btn bg-gradient-dark mb-0">Edit Warehouse</a>
+            <a href="{{ route('warehouses.edit', $warehouse) }}" class="btn btn-action-edit mb-0">Edit Warehouse</a>
         </div>
     </div>
 

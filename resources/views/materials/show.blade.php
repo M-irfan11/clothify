@@ -13,7 +13,7 @@
         </div>
         <div>
             <a href="{{ route('materials.index') }}" class="btn btn-outline-dark mb-0">Back</a>
-            <a href="{{ route('materials.edit', $material) }}" class="btn bg-gradient-dark mb-0">Edit Material</a>
+            <a href="{{ route('materials.edit', $material) }}" class="btn btn-action-edit mb-0">Edit Material</a>
         </div>
     </div>
 

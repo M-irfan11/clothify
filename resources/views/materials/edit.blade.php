@@ -7,7 +7,7 @@
             <h4 class="mb-1">Edit Material</h4>
             <p class="text-sm text-secondary mb-0">Update {{ $material->material_name }}.</p>
         </div>
-        <a href="{{ route('materials.show', $material) }}" class="btn btn-outline-dark mb-0">View Material</a>
+        <a href="{{ route('materials.show', $material) }}" class="btn btn-action-view mb-0">View Material</a>
     </div>
 
     <div class="card">
@@ -81,7 +81,7 @@
                         @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn bg-gradient-dark mb-0">Update Material</button>
+                <button type="submit" class="btn btn-action-edit mb-0">Update Material</button>
                 <a href="{{ route('materials.index') }}" class="btn btn-outline-secondary mb-0">Cancel</a>
             </form>
         </div>

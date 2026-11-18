@@ -51,12 +51,12 @@
                                     </span>
                                 </td>
                                 <td class="align-middle text-end">
-                                    <a href="{{ route('warehouses.show', $warehouse) }}" class="text-secondary font-weight-bold text-xs me-2">View</a>
-                                    <a href="{{ route('warehouses.edit', $warehouse) }}" class="text-secondary font-weight-bold text-xs me-2">Edit</a>
+                                    <a href="{{ route('warehouses.show', $warehouse) }}" class="btn btn-sm btn-action-view mb-0 me-1">View</a>
+                                    <a href="{{ route('warehouses.edit', $warehouse) }}" class="btn btn-sm btn-action-edit mb-0 me-1">Edit</a>
                                     <form action="{{ route('warehouses.destroy', $warehouse) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-link text-danger text-xs font-weight-bold p-0 mb-0" onclick="return confirm('Delete this warehouse?')">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-action-delete mb-0" onclick="return confirm('Delete this warehouse?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

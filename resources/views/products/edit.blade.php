@@ -60,7 +60,7 @@
                             @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                     </div>
-                    <button type="submit" class="btn bg-gradient-dark mb-0">Update Product</button>
+                    <button type="submit" class="btn btn-action-edit mb-0">Update Product</button>
                     <a href="{{ route('products.show', $product) }}" class="btn btn-outline-secondary mb-0">Cancel</a>
                 </form>
             </div>

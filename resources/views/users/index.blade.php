@@ -35,11 +35,12 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block;">
+                                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-action-view mb-0 me-1">View</a>
+                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-action-edit mb-0 me-1">Edit</a>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-action-delete mb-0" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
