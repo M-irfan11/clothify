@@ -1,0 +1,22 @@
+:root {
+    --tw-gradient-from-position: 0%;
+    --tw-gradient-via-position: 80%;
+    --tw-gradient-to-position: 100%;
+}
+
+@tailwind utilities;
+@tailwind components;
+
+@layer components {
+    .btn.btn-dark,
+    .btn.bg-gradient-dark,
+    .btn.btn-outline-dark {
+        @apply border-transparent bg-gradient-to-r from-[#a36ec7] to-[#9259bc] text-white shadow-md shadow-purple-200 transition-all duration-200;
+    }
+
+    .btn.btn-dark:hover,
+    .btn.bg-gradient-dark:hover,
+    .btn.btn-outline-dark:hover {
+        @apply from-[#9259bc] to-[#7c3aed] text-white shadow-lg;
+    }
+}

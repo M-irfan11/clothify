@@ -2,12 +2,9 @@
 
 @section('content')
 <div class="container-fluid py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h4 class="mb-1">Warehouses</h4>
-            <p class="text-sm text-secondary mb-0">Manage warehouse locations and details.</p>
-        </div>
-        <a href="{{ route('warehouses.create') }}" class="btn bg-gradient-dark mb-0">Add Warehouse</a>
+    <div class="mb-3">
+        <h4 class="mb-1">Warehouses</h4>
+        <p class="text-sm text-secondary mb-0">Manage warehouse locations and details.</p>
     </div>
 
     @if (session('success'))
@@ -15,6 +12,16 @@
     @endif
 
     <div class="card">
+        <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
+            <div>
+                <h6 class="mb-1">Warehouse List</h6>
+                <p class="text-xs text-secondary mb-0">Review and manage warehouse records</p>
+            </div>
+            <a href="{{ route('warehouses.create') }}" class="btn btn-sm bg-gradient-dark mb-0">
+                <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
+                Add Warehouse
+            </a>
+        </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive">
                 <table class="table align-items-center mb-0">

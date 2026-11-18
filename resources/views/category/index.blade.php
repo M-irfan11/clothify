@@ -1,15 +1,22 @@
 @extends('layout.master')
 @section('content')
     <div class="container-fluid py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-                <h4 class="mb-1">Products</h4>
-                <p class="text-sm text-secondary mb-0">Manage your products here.</p>
-            </div>
-            <a href="{{ route('products.create') }}" class="btn btn-outline-dark mb-0">Add Product</a>
+        <div class="mb-3">
+            <h4 class="mb-1">Products</h4>
+            <p class="text-sm text-secondary mb-0">Manage your product catalog.</p>
         </div>
 
         <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
+                <div>
+                    <h6 class="mb-1">Product List</h6>
+                    <p class="text-xs text-secondary mb-0">Review and manage product records</p>
+                </div>
+                <a href="{{ route('products.create') }}" class="btn btn-sm bg-gradient-dark mb-0">
+                    <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
+                    Add Product
+                </a>
+            </div>
             <div class="card-body">
                 @if ($products->isEmpty())
                     <p class="text-sm text-secondary mb-0">No products found. Click "Add Product" to create a new product.</p>

@@ -1,644 +1,296 @@
 @extends('layout.master')
+
 @section('content')
- <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-          </ol>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
-            </div>
-          </div>
-          <ul class="navbar-nav d-flex align-items-center  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
-            </li>
-            <li class="mt-1">
-              <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-            </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="material-symbols-rounded fixed-plugin-button-nav">settings</i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="material-symbols-rounded">notifications</i>
-              </a>
-              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
-                <i class="material-symbols-rounded">account_circle</i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End Navbar -->
-    <div class="container-fluid py-2">
-      <div class="row">
-        <div class="ms-3">
-          <h3 class="mb-0 h4 font-weight-bolder">Dashboard</h3>
-          <p class="mb-4">
-            Check the sales, value and bounce rate by country.
-          </p>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Today's Money</p>
-                  <h4 class="mb-0">$53k</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+55% </span>than last week</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-                  <h4 class="mb-0">2300</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">person</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+3% </span>than last month</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Ads Views</p>
-                  <h4 class="mb-0">3,462</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">leaderboard</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-danger font-weight-bolder">-2% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-header p-2 ps-3">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p class="text-sm mb-0 text-capitalize">Sales</p>
-                  <h4 class="mb-0">$103,430</h4>
-                </div>
-                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                  <i class="material-symbols-rounded opacity-10">weekend</i>
-                </div>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-2 ps-3">
-              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-0 ">Website Views</h6>
-              <p class="text-sm ">Last Campaign Performance</p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card ">
-            <div class="card-body">
-              <h6 class="mb-0 "> Daily Sales </h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mt-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-0 ">Completed Tasks</h6>
-              <p class="text-sm ">Last Campaign Performance</p>
-              <div class="pe-2">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                </div>
-              </div>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-4">
-        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-          <div class="card">
-            <div class="card-header pb-0">
-              <div class="row">
-                <div class="col-lg-6 col-7">
-                  <h6>Projects</h6>
-                  <p class="text-sm mb-0">
-                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 done</span> this month
-                  </p>
-                </div>
-                <div class="col-lg-6 col-5 my-auto text-end">
-                  <div class="dropdown float-lg-end pe-4">
-                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-ellipsis-v text-secondary"></i>
-                    </a>
-                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Completion</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Material XD Version</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-1.jpg" alt="team1">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-2.jpg" alt="team2">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                            <img src="../assets/img/team-3.jpg" alt="team3">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="team4">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $14,000 </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">60%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Add Progress Track</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-2.jpg" alt="team5">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="team6">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $3,000 </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">10%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-3.jpg" alt="team8">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-1.jpg" alt="team9">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> Not set </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm me-3" alt="spotify">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-4.jpg" alt="user1">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="../assets/img/team-3.jpg" alt="user2">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                            <img src="../assets/img/team-4.jpg" alt="user3">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-1.jpg" alt="user4">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $20,500 </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">100%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm me-3" alt="jira">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-4.jpg" alt="user5">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $500 </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">25%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm me-3" alt="invision">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="../assets/img/team-1.jpg" alt="user6">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="../assets/img/team-4.jpg" alt="user7">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $2,000 </span>
-                      </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">40%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card h-100">
-            <div class="card-header pb-0">
-              <h6>Orders overview</h6>
-              <p class="text-sm">
-                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                <span class="font-weight-bold">24%</span> this month
-              </p>
-            </div>
-            <div class="card-body p-3">
-              <div class="timeline timeline-one-side">
-                <div class="timeline-block mb-3">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-success text-gradient">notifications</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
-                  </div>
-                </div>
-                <div class="timeline-block mb-3">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-danger text-gradient">code</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #1832412</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 11 PM</p>
-                  </div>
-                </div>
-                <div class="timeline-block mb-3">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-info text-gradient">shopping_cart</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">Server payments for April</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM</p>
-                  </div>
-                </div>
-                <div class="timeline-block mb-3">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-warning text-gradient">credit_card</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New card added for order #4395133</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">20 DEC 2:20 AM</p>
-                  </div>
-                </div>
-                <div class="timeline-block mb-3">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-primary text-gradient">key</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">Unlock packages for development</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
-                  </div>
-                </div>
-                <div class="timeline-block">
-                  <span class="timeline-step">
-                    <i class="material-symbols-rounded text-dark text-gradient">payments</i>
-                  </span>
-                  <div class="timeline-content">
-                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #9583120</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">17 DEC</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+<div class="mx-auto flex w-full flex-col gap-4 px-3 py-3 pb-8">
+  <div class="flex flex-wrap items-end justify-between gap-2 px-1">
+    <div>
+      <h1 class="mb-1 text-xl font-semibold text-[#344767]">Dashboard</h1>
+      <p class="mb-0 text-sm text-[#8a94a6]">Your business overview at a glance.</p>
     </div>
-  </main>
-  @endsection
+    <span class="mt-2 text-xs text-[#8a94a6]">Clothify overview</span>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3">
+    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#4b75e8] px-4 py-4 text-white">
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Total Income</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$579,000</h2>
+      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
+    </article>
+    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#4b75e8] px-4 py-4 text-white">
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Total Expenses</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$79,000</h2>
+      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
+    </article>
+    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#a16dca] px-4 py-4 text-white">
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Cash on Hand</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$92,000</h2>
+      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
+    </article>
+    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#a16dca] px-4 py-4 text-white">
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Net Profit Margin</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$179,000</h2>
+      <small class="text-[0.65rem] opacity-90">Saved 65%</small>
+    </article>
+  </div>
+
+  <div class="grid grid-cols-1 gap-3 lg:grid-cols-4">
+    <div class="min-w-0 lg:col-span-2">
+      <section class="h-full rounded-lg bg-white p-4 shadow-sm">
+        <div class="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h2 class="mb-1 text-[0.82rem] font-semibold text-[#344767]">AP and AR Balance</h2>
+            <p class="mb-0 text-[0.7rem] text-[#8a94a6]">Avg. $5,309</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085]" type="button">Monthly</button>
+            <button class="rounded border border-[#e9edf3] px-2 py-1 text-xs text-[#667085]" type="button">Last Year</button>
+          </div>
+        </div>
+        <svg class="mt-2 block h-auto w-full" viewBox="0 0 700 285" role="img" aria-label="Monthly AP and AR balance chart">
+          <g class="stroke-[#e9edf3] [stroke-width:1]">
+            <line x1="52" y1="35" x2="650" y2="35" />
+            <line x1="52" y1="80" x2="650" y2="80" />
+            <line x1="52" y1="125" x2="650" y2="125" />
+            <line x1="52" y1="170" x2="650" y2="170" />
+            <line x1="52" y1="215" x2="650" y2="215" />
+          </g>
+          <g class="fill-[#7b8496] font-sans text-[11px]">
+            <text x="12" y="39">800</text>
+            <text x="12" y="84">600</text>
+            <text x="12" y="129">400</text>
+            <text x="12" y="174">200</text>
+            <text x="20" y="219">0</text>
+          </g>
+          <g class="fill-[#a16dca] opacity-90">
+            <rect x="76" y="130" width="27" height="85" rx="1" />
+            <rect x="119" y="105" width="27" height="110" rx="1" />
+            <rect x="162" y="125" width="27" height="90" rx="1" />
+            <rect x="205" y="155" width="27" height="60" rx="1" />
+            <rect x="248" y="95" width="27" height="120" rx="1" />
+            <rect x="291" y="170" width="27" height="45" rx="1" />
+            <rect x="334" y="138" width="27" height="77" rx="1" />
+            <rect x="377" y="160" width="27" height="55" rx="1" />
+            <rect x="420" y="85" width="27" height="130" rx="1" />
+            <rect x="463" y="135" width="27" height="80" rx="1" />
+            <rect x="506" y="150" width="27" height="65" rx="1" />
+            <rect x="549" y="174" width="27" height="41" rx="1" />
+            <rect x="592" y="185" width="27" height="30" rx="1" />
+          </g>
+          <polyline
+            points="89,145 132,64 175,95 218,120 261,58 304,142 347,162 390,102 433,150 476,169 519,190 562,205 605,184"
+            class="fill-none stroke-[#a16dca] stroke-[5] opacity-85 [stroke-linecap:round] [stroke-linejoin:round]"
+          />
+          <g class="fill-[#7b8496] font-sans text-[11px]">
+            <text x="68" y="246">Jan '01</text>
+            <text x="160" y="246">03 Jan</text>
+            <text x="250" y="246">05 Jan</text>
+            <text x="342" y="246">07 Jan</text>
+            <text x="434" y="246">09 Jan</text>
+            <text x="526" y="246">11 Jan</text>
+          </g>
+        </svg>
+      </section>
+    </div>
+
+    <div class="min-w-0 lg:col-span-1">
+      <section class="flex h-full flex-col rounded-lg bg-white p-4 shadow-sm">
+        <h2 class="mb-3 text-[0.82rem] font-semibold text-[#344767]">% of Income Budget</h2>
+        <div class="relative mx-auto mb-3 grid aspect-square w-[min(108px,86%)] place-items-center" role="img" aria-label="67 percent of income budget">
+          <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" class="stroke-[#e9edf4]" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="189 283" class="stroke-[#537be8]" />
+          </svg>
+          <span class="relative text-center text-base font-bold leading-tight text-[#344767]">67%<small class="block text-[0.62rem] font-normal text-[#8a94a6]">Budget</small></span>
+        </div>
+        <div class="mb-3 flex justify-between text-xs text-[#8a94a6]">
+          <span>Balance</span>
+          <span>$18,570</span>
+        </div>
+        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline hover:underline" href="{{ route('products.index') }}">View Full Report</a>
+      </section>
+    </div>
+
+    <div class="min-w-0 lg:col-span-1">
+      <section class="flex h-full flex-col rounded-lg bg-white p-4 shadow-sm">
+        <h2 class="mb-3 text-[0.82rem] font-semibold text-[#344767]">% of Expenses Budget</h2>
+        <div class="relative mx-auto mb-3 grid aspect-square w-[min(108px,86%)] place-items-center" role="img" aria-label="48 percent of expenses budget">
+          <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" class="stroke-[#e9edf4]" />
+            <circle cx="50" cy="50" r="45" fill="none" stroke-width="8" stroke-dasharray="136 283" class="stroke-[#a16dca]" />
+          </svg>
+          <span class="relative text-center text-base font-bold leading-tight text-[#344767]">48%<small class="block text-[0.62rem] font-normal text-[#8a94a6]">Profit</small></span>
+        </div>
+        <div class="mb-3 flex justify-between text-xs text-[#8a94a6]">
+          <span>Balance</span>
+          <span>$31,430</span>
+        </div>
+        <a class="mt-auto block border-t border-[#eef0f4] pt-3 text-center text-[0.68rem] text-[#4b75e8] no-underline hover:underline" href="{{ route('materials.index') }}">View Full Report</a>
+      </section>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <section class="min-w-0 rounded-lg bg-white p-4 shadow-sm lg:col-span-2">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-sm font-semibold text-[#344767]">Monthly Income stats for November 2020</h2>
+        <div class="flex gap-1 rounded bg-[#f3f6fb] p-1 text-[0.65rem] text-[#667085]">
+          <button class="rounded px-2 py-1" type="button">Today</button>
+          <button class="rounded bg-white px-2 py-1 font-medium shadow-sm" type="button">Weekly</button>
+          <button class="rounded px-2 py-1" type="button">Monthly</button>
+        </div>
+      </div>
+
+      <svg class="mt-4 block h-auto w-full" viewBox="0 0 700 300" role="img" aria-label="Monthly income with yearly comparison">
+        <g class="stroke-[#e9edf3] [stroke-width:1]">
+          <line x1="48" y1="35" x2="680" y2="35" />
+          <line x1="48" y1="80" x2="680" y2="80" />
+          <line x1="48" y1="125" x2="680" y2="125" />
+          <line x1="48" y1="170" x2="680" y2="170" />
+          <line x1="48" y1="215" x2="680" y2="215" />
+        </g>
+        <g class="fill-[#7b8496] font-sans text-[11px]">
+          <text x="12" y="39">45</text>
+          <text x="12" y="84">36</text>
+          <text x="12" y="129">27</text>
+          <text x="12" y="174">18</text>
+          <text x="18" y="219">9</text>
+        </g>
+        <g class="fill-[#a16dca] opacity-95">
+          <rect x="54" y="145" width="12" height="70" rx="1" />
+          <rect x="102" y="53" width="12" height="162" rx="1" />
+          <rect x="150" y="110" width="12" height="105" rx="1" />
+          <rect x="198" y="123" width="12" height="92" rx="1" />
+          <rect x="246" y="145" width="12" height="70" rx="1" />
+          <rect x="294" y="48" width="12" height="167" rx="1" />
+          <rect x="342" y="152" width="12" height="63" rx="1" />
+          <rect x="390" y="180" width="12" height="35" rx="1" />
+          <rect x="438" y="101" width="12" height="114" rx="1" />
+          <rect x="486" y="132" width="12" height="83" rx="1" />
+          <rect x="534" y="145" width="12" height="70" rx="1" />
+          <rect x="582" y="197" width="12" height="18" rx="1" />
+          <rect x="630" y="176" width="12" height="39" rx="1" />
+        </g>
+        <polyline
+          points="60,132 108,76 156,101 204,62 252,139 300,102 348,77 396,101 444,61 492,134 540,91 588,151 636,173"
+          class="fill-none stroke-[#a16dca] stroke-[3] [stroke-linecap:round] [stroke-linejoin:round]"
+        />
+        <g class="fill-[#7b8496] font-sans text-[11px]">
+          <text x="48" y="239">Jan</text>
+          <text x="96" y="239">Feb</text>
+          <text x="144" y="239">Mar</text>
+          <text x="192" y="239">Apr</text>
+          <text x="240" y="239">May</text>
+          <text x="288" y="239">Jun</text>
+          <text x="336" y="239">Jul</text>
+          <text x="384" y="239">Aug</text>
+          <text x="432" y="239">Sep</text>
+          <text x="480" y="239">Oct</text>
+          <text x="528" y="239">Nov</text>
+          <text x="576" y="239">Dec</text>
+        </g>
+      </svg>
+
+      <div class="mt-2 grid grid-cols-1 gap-3 border-t border-[#eef0f4] pt-3 text-xs sm:grid-cols-3">
+        <div>
+          <p class="mb-1 font-medium text-[#344767]">$12,253 <span class="text-[#80cdb2]">↗ 2.2%</span></p>
+          <p class="mb-0 text-[0.65rem] text-[#8a94a6]">This month</p>
+        </div>
+        <div>
+          <p class="mb-1 font-medium text-[#344767]"><span class="mr-1 text-[#a16dca]">●</span>This Year: $34,254 <span class="text-[#80cdb2]">↗ 2.1%</span></p>
+          <p class="mb-0 text-[0.65rem] text-[#8a94a6]">Year to date</p>
+        </div>
+        <div>
+          <p class="mb-1 font-medium text-[#344767]"><span class="mr-1 text-[#a16dca]">●</span>Previous Year: $32,695</p>
+          <p class="mb-0 text-[0.65rem] text-[#8a94a6]">Last year</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-lg bg-white p-2 shadow-sm">
+      <h2 class="sr-only">Listing summary</h2>
+      <div class="flex h-full flex-col divide-y divide-[#eef0f4]">
+        <div class="flex flex-1 flex-col justify-center px-4 py-3">
+          <strong class="text-lg font-bold text-[#4b75e8]">50 +</strong>
+          <span class="text-xs text-[#8a94a6]">Total categories</span>
+        </div>
+        <div class="flex flex-1 flex-col justify-center px-4 py-3">
+          <strong class="text-lg font-bold text-[#4b75e8]">100 +</strong>
+          <span class="text-xs text-[#8a94a6]">Total Listing</span>
+        </div>
+        <div class="flex flex-1 flex-col justify-center px-4 py-3">
+          <strong class="text-lg font-bold text-[#4b75e8]">20 +</strong>
+          <span class="text-xs text-[#8a94a6]">Claimed Listing</span>
+        </div>
+        <div class="flex flex-1 flex-col justify-center px-4 py-3">
+          <strong class="text-lg font-bold text-[#4b75e8]">10 +</strong>
+          <span class="text-xs text-[#8a94a6]">Reported Listing</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <section class="rounded-lg bg-white p-4 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold text-[#344767]">Users according to packages</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-xs">
+          <thead>
+            <tr class="bg-[#f3f7fd] text-[#8393b7]">
+              <th class="rounded-l-lg px-4 py-3 font-medium">Package Name</th>
+              <th class="rounded-r-lg px-4 py-3 text-right font-medium">No. Of Users</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#f1f3f7] text-[#8a94a6]">
+            <tr>
+              <td class="px-4 py-3">Free package</td>
+              <td class="px-4 py-3 text-right">2556</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Free package</td>
+              <td class="px-4 py-3 text-right">2556</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Free package</td>
+              <td class="px-4 py-3 text-right">2556</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rounded-lg bg-white p-4 shadow-sm">
+      <h2 class="mb-5 text-sm font-semibold text-[#344767]">Overview</h2>
+      <div class="space-y-5">
+        <div class="flex items-center gap-3">
+          <span class="w-24 shrink-0 text-xs text-[#667085]">Active Listings</span>
+          <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
+            <div class="h-full w-[85%] rounded-full bg-[#4b8cf5]"></div>
+            <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">85%</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-24 shrink-0 text-xs text-[#667085]">Claimed Listings</span>
+          <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
+            <div class="h-full w-[76%] rounded-full bg-[#a16dca]"></div>
+            <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">76%</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-24 shrink-0 text-xs text-[#667085]">Reported Listings</span>
+          <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
+            <div class="h-full w-[55%] rounded-full bg-[#ef78a9]"></div>
+            <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">55%</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-24 shrink-0 text-xs text-[#667085]">Pending Listings</span>
+          <div class="relative h-1.5 flex-1 rounded-full bg-[#f1f3f7]">
+            <div class="h-full w-[25%] rounded-full bg-[#63d4df]"></div>
+            <span class="absolute -top-4 right-0 text-[0.6rem] text-[#8a94a6]">25%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+@endsection

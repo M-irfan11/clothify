@@ -24,7 +24,7 @@ class DashboardTest extends TestCase
         $response = $this->actingAs($user)->get(route('home'));
 
         $response->assertOk();
-        $response->assertSee("Today's Money", escape: false);
+        $response->assertSee('Total Income');
         $response->assertSee('href="'.route('home').'"', escape: false);
     }
 }
