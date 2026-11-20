@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\BomItemController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductVariantsController;
+use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
@@ -26,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('materials', MaterialController::class);
     Route::resource('products', ProductsController::class);
     Route::resource('product_variants', ProductVariantsController::class);
+    Route::resource('bom_items', BomItemController::class);
+    Route::resource('inventory_stocks', InventoryStockController::class);
+    Route::resource('stock_movements', StockMovementController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
