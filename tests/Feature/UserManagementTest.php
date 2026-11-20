@@ -42,4 +42,13 @@ class UserManagementTest extends TestCase
             'email' => 'new-user@example.com',
         ]);
     }
+
+    public function test_non_admin_cannot_access_user_management(): void
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user)
+            ->get(route('users.index'))
+            ->assertForbidden();
+    }
 }

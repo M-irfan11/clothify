@@ -84,25 +84,37 @@
         </li>
         @endauth
 
-        @auth
-        <li class="nav-item">
-            <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('products.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('products.index') }}">
-              <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('products.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">inventory_2</i>
-              <span class="nav-link-text ms-1 {{ request()->routeIs('products.*') ? '!text-white' : 'group-hover:!text-white' }}">Products</span>
-            </a>
-        </li>
-        @endauth
+        <li class="nav-item group/product">
+          {{-- প্যারেন্ট: Products --}}
+          <a class="nav-link group group/expanded relative rounded-xl transition-all duration-200 after:!hidden before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/product:before:opacity-100 group-hover/product:!bg-[#a36ec7] group-hover/product:!text-white {{ request()->routeIs('products.*', 'product_variants.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}"
+            data-bs-toggle="collapse"
+            href="#productsSubmenu"
+            aria-controls="productsSubmenu"
+            aria-expanded="{{ request()->routeIs('products.*', 'product_variants.*') ? 'true' : 'false' }}">
+              <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('products.*', 'product_variants.*') ? '!opacity-100 !text-white' : 'group-hover/product:!opacity-100 group-hover/product:!text-white group-focus-visible:!opacity-100' }}">inventory_2</i>
+              <span class="nav-link-text ms-1 {{ request()->routeIs('products.*', 'product_variants.*') ? '!text-white' : 'group-hover/product:!text-white group-focus-visible:!text-white' }}">Products</span>
+              <span class="material-symbols-rounded ms-auto text-base transition-transform duration-200 group-aria-expanded/expanded:rotate-90" aria-hidden="true">chevron_right</span>
+          </a>
 
-        @auth
-        <li class="nav-item">
-            <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('product_variants.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('product_variants.index') }}">
-              <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('product_variants.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">style</i>
-              <span class="nav-link-text ms-1 {{ request()->routeIs('product_variants.*') ? '!text-white' : 'group-hover:!text-white' }}">Product Variants</span>
-            </a>
-        </li>
-        @endauth   
-        
-       
+          {{-- সাবমেনু --}}
+          <div class="collapse !visible {{ request()->routeIs('products.*', 'product_variants.*') ? 'show' : '' }}" id="productsSubmenu">
+              <ul class="nav flex-column ms-4 mt-1 border-start border-slate-200 ps-2">
+                  <li class="nav-item group/submenu-item">
+                      <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('products.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('products.index') }}">
+                          All Products
+                      </a>
+                  </li>
+                  <li class="nav-item group/submenu-item">
+                      <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('product_variants.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('product_variants.index') }}">
+                          Product Variants
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </li>
+
+
+
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
         </li>
