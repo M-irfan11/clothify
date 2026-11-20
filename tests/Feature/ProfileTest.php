@@ -18,7 +18,21 @@ class ProfileTest extends TestCase
             ->actingAs($user)
             ->get('/profile');
 
-        $response->assertOk();
+        $response
+            ->assertOk()
+            ->assertSee($user->name)
+            ->assertSee($user->email)
+            ->assertSee('Verified account')
+            ->assertSee('Logout')
+            ->assertDontSee('Sign In')
+            ->assertSee('action="'.route('logout').'"', false);
+    }
+
+    public function test_profile_page_requires_authentication(): void
+    {
+        $response = $this->get('/profile');
+
+        $response->assertRedirect('/login');
     }
 
     public function test_profile_information_can_be_updated(): void

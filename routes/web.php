@@ -6,6 +6,7 @@ use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductVariantsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,10 @@ Route::middleware(['auth', 'role:admin|editor'])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::resource('suppliers', SupplierController::class);
     Route::resource('materials', MaterialController::class);
     Route::resource('products', ProductsController::class);

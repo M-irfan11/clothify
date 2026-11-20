@@ -151,34 +151,30 @@
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
         </li>
+        @auth
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/profile.html">
-            <i class="material-symbols-rounded opacity-5">person</i>
-            <span class="nav-link-text ms-1">Profile</span>
+          <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('profile.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('profile.edit') }}">
+            <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('profile.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">person</i>
+            <span class="nav-link-text ms-1 {{ request()->routeIs('profile.*') ? '!text-white' : 'group-hover:!text-white' }}">Profile</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/sign-in.html">
+          <form action="{{ route('logout') }}" method="POST" class="m-0">
+            @csrf
+            <button type="submit" class="nav-link group relative w-100 rounded-xl border-0 bg-transparent text-start transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:opacity-0 before:transition-opacity hover:before:opacity-100 hover:!bg-[#a36ec7] hover:!text-white focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white !text-slate-600">
+              <i class="material-symbols-rounded opacity-5 group-hover:!opacity-100 group-hover:!text-white">logout</i>
+              <span class="nav-link-text ms-1 group-hover:!text-white">Logout</span>
+            </button>
+          </form>
+        </li>
+        @else
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ route('login') }}">
             <i class="material-symbols-rounded opacity-5">login</i>
             <span class="nav-link-text ms-1">Sign In</span>
           </a>
         </li>
-        <li class="nav-item">
-          {{-- <a class="nav-link text-dark" href="../pages/sign-up.html">
-            <i class="material-symbols-rounded opacity-5">assignment</i>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a> --}}
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-          </form>
-
-        </li>
+        @endauth
       </ul>
     </div>
 
