@@ -2,34 +2,34 @@
 
 @section('content')
 <div class="mx-auto flex w-full flex-col gap-4 px-3 py-3 pb-8">
-  <div class="flex flex-wrap items-end justify-between gap-2 px-1">
+  <!-- <div class="flex flex-wrap items-end justify-between gap-2 px-1">
     <div>
       <h1 class="mb-1 text-xl font-semibold text-[#344767]">Dashboard</h1>
       <p class="mb-0 text-sm text-[#8a94a6]">Your business overview at a glance.</p>
     </div>
     <span class="mt-2 text-xs text-[#8a94a6]">Clothify overview</span>
-  </div>
+  <!-- </div> -->
 
   <div class="grid grid-cols-2 gap-3">
     <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#4b75e8] px-4 py-4 text-white">
-      <p class="mb-1 text-[0.78rem] font-medium text-white">Total Income</p>
-      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$579,000</h2>
-      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Total Raw Materials</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">12,500 kg</h2>
+      <small class="text-[0.65rem] opacity-90">Available Stock</small>
+    </article>
+    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#a16dca] px-4 py-4 text-white">
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Finished Goods</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">8,450 pcs</h2>
+      <small class="text-[0.65rem] opacity-90">Ready for Shipmen</small>
     </article>
     <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#4b75e8] px-4 py-4 text-white">
-      <p class="mb-1 text-[0.78rem] font-medium text-white">Total Expenses</p>
-      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$79,000</h2>
-      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Active Production</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">12 Orders</h2>
+      <small class="text-[0.65rem] opacity-90">In Progress</small>
     </article>
     <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#a16dca] px-4 py-4 text-white">
-      <p class="mb-1 text-[0.78rem] font-medium text-white">Cash on Hand</p>
-      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$92,000</h2>
-      <small class="text-[0.65rem] opacity-90">Saved 25%</small>
-    </article>
-    <article class="flex min-h-[116px] flex-col justify-center rounded-md bg-[#a16dca] px-4 py-4 text-white">
-      <p class="mb-1 text-[0.78rem] font-medium text-white">Net Profit Margin</p>
-      <h2 class="mb-1 text-[1.35rem] font-bold text-white">$179,000</h2>
-      <small class="text-[0.65rem] opacity-90">Saved 65%</small>
+      <p class="mb-1 text-[0.78rem] font-medium text-white">Pending Buyer Orders</p>
+      <h2 class="mb-1 text-[1.35rem] font-bold text-white">18 Orders</h2>
+      <small class="text-[0.65rem] opacity-90">Awaiting Processing</small>
     </article>
   </div>
 
