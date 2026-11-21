@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('purchase_orders', function (Blueprint $table) {
             $table->id();
-             $table->string('po_no', 30)->unique();
+            $table->string('po_no', 30)->unique();
 
-            
             $table->unsignedInteger('supplier_id');
-            $table->foreignId('supplier_id')->references('id')->on('suppliers');
+
             $table->unsignedInteger('warehouse_id'); // receiving warehouse
-            $table->foreignId('warehouse_id')->references('id')->on('warehouses');
 
             $table->date('order_date');
             $table->date('expected_date');
@@ -39,7 +37,7 @@ return new class extends Migration
             $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('created_by')->constrained('users');
 
-            $table->string('remarks', 255)->nullable();            
+            $table->string('remarks', 255)->nullable();
 
             $table->index('status');
             $table->index('payment_status');

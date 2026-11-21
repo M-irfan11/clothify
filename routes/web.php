@@ -6,8 +6,9 @@ use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductVariantsController;
-use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseOrderController;
+use App\Http\Controllers\PurchaseOrderItemController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('inventory_stocks', InventoryStockController::class);
     Route::resource('stock_movements', StockMovementController::class);
     Route::resource('purchase_orders', PurchaseOrderController::class);
+    Route::resource('purchase_order_items', PurchaseOrderItemController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

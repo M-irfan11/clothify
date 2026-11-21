@@ -4,22 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PurchaseOrder extends Model
 {
     public const STATUSES = [
-        'draft'            => 'Draft',
-        'approved'         => 'Approved',
-        'sent'             => 'Sent',
+        'draft' => 'Draft',
+        'approved' => 'Approved',
+        'sent' => 'Sent',
         'partial_received' => 'Partial Received',
-        'received'         => 'Received',
-        'cancelled'        => 'Cancelled',
+        'received' => 'Received',
+        'cancelled' => 'Cancelled',
     ];
 
     public const PAYMENT_STATUSES = [
-        'unpaid'  => 'Unpaid',
+        'unpaid' => 'Unpaid',
         'partial' => 'Partial',
-        'paid'    => 'Paid',
+        'paid' => 'Paid',
     ];
 
     protected $fillable = [
@@ -31,13 +32,13 @@ class PurchaseOrder extends Model
     ];
 
     protected $casts = [
-        'order_date'    => 'date',
+        'order_date' => 'date',
         'expected_date' => 'date',
         'received_date' => 'date',
-        'subtotal'      => 'decimal:2',
-        'tax_amount'    => 'decimal:2',
-        'total_amount'  => 'decimal:2',
-        'paid_amount'   => 'decimal:2',
+        'subtotal' => 'decimal:2',
+        'tax_amount' => 'decimal:2',
+        'total_amount' => 'decimal:2',
+        'paid_amount' => 'decimal:2',
     ];
 
     public function getStatusLabelAttribute(): string
@@ -53,20 +54,20 @@ class PurchaseOrder extends Model
     public function getStatusBadgeAttribute(): string
     {
         return match ($this->status) {
-            'received'         => 'bg-gradient-success',
+            'received' => 'bg-gradient-success',
             'partial_received' => 'bg-gradient-info',
             'approved', 'sent' => 'bg-gradient-primary',
-            'cancelled'        => 'bg-gradient-danger',
-            default            => 'bg-gradient-secondary',
+            'cancelled' => 'bg-gradient-danger',
+            default => 'bg-gradient-secondary',
         };
     }
 
     public function getPaymentBadgeAttribute(): string
     {
         return match ($this->payment_status) {
-            'paid'    => 'bg-gradient-success',
+            'paid' => 'bg-gradient-success',
             'partial' => 'bg-gradient-warning',
-            default   => 'bg-gradient-danger',
+            default => 'bg-gradient-danger',
         };
     }
 
@@ -88,5 +89,10 @@ class PurchaseOrder extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(PurchaseOrderItem::class);
     }
 }

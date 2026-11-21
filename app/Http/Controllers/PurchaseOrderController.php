@@ -12,17 +12,17 @@ class PurchaseOrderController extends Controller
 {
     public function index()
     {
-        $purchaseOrder = PurchaseOrder::query()
+        $purchaseOrders = PurchaseOrder::query()
             ->with(['supplier', 'warehouse'])
             ->orderByDesc('created_at')
             ->paginate(15);
 
-        return view('purchase_orders.index', compact('purchaseOrder'));
+        return view('purchase_orders.index', compact('purchaseOrders'));
     }
 
     public function create()
     {
-        $suppliers  = Supplier::orderBy('id')->get();
+        $suppliers = Supplier::orderBy('id')->get();
         $warehouses = Warehouse::orderBy('id')->get();
 
         return view('purchase_orders.create', compact('suppliers', 'warehouses'));
@@ -34,7 +34,7 @@ class PurchaseOrderController extends Controller
 
         // total server-side এ হিসাব হবে
         $data['total_amount'] = $data['subtotal'] + ($data['tax_amount'] ?? 0);
-        $data['created_by']   = auth()->id();
+        $data['created_by'] = auth()->id();
 
         $purchaseOrder = PurchaseOrder::create($data);
 
@@ -52,13 +52,13 @@ class PurchaseOrderController extends Controller
 
     public function edit(PurchaseOrder $purchase_order)
     {
-        $suppliers  = Supplier::orderBy('id')->get();
+        $suppliers = Supplier::orderBy('id')->get();
         $warehouses = Warehouse::orderBy('id')->get();
 
         return view('purchase_orders.edit', [
             'purchaseOrder' => $purchase_order,
-            'suppliers'     => $suppliers,
-            'warehouses'    => $warehouses,
+            'suppliers' => $suppliers,
+            'warehouses' => $warehouses,
         ]);
     }
 
@@ -97,15 +97,15 @@ class PurchaseOrderController extends Controller
                 Rule::unique('purchase_orders', 'po_no')->ignore($id),
             ],
 
-            'supplier_id'  => ['required', 'integer', 'exists:suppliers,id'],
+            'supplier_id' => ['required', 'integer', 'exists:suppliers,id'],
             'warehouse_id' => ['required', 'integer', 'exists:warehouses,id'],
 
-            'order_date'    => ['required', 'date'],
+            'order_date' => ['required', 'date'],
             'expected_date' => ['required', 'date', 'after_or_equal:order_date'],
             'received_date' => ['nullable', 'date', 'after_or_equal:order_date'],
 
-            'subtotal'    => ['required', 'numeric', 'min:0'],
-            'tax_amount'  => ['nullable', 'numeric', 'min:0'],
+            'subtotal' => ['required', 'numeric', 'min:0'],
+            'tax_amount' => ['nullable', 'numeric', 'min:0'],
             'paid_amount' => ['nullable', 'numeric', 'min:0'],
 
             'payment_status' => ['required', Rule::in(['unpaid', 'partial', 'paid'])],
@@ -115,7 +115,7 @@ class PurchaseOrderController extends Controller
             ])],
 
             'approved_by' => ['nullable', 'integer', 'exists:users,id'],
-            'remarks'     => ['nullable', 'string', 'max:255'],
+            'remarks' => ['nullable', 'string', 'max:255'],
         ];
     }
 }

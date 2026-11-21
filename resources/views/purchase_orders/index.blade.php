@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($purchaseOrder as $purchaseOrder)
+                        @forelse ($purchaseOrders as $purchaseOrder)
                             <tr>
                                 <td>
                                     <a class="text-sm font-weight-bold mb-0" href="{{ route('purchase_orders.show', $purchaseOrder) }}">
@@ -50,7 +50,7 @@
                                     <p class="text-sm font-weight-bold mb-0">{{ $purchaseOrder->supplier->company_name ?? '—' }}</p>
                                     <p class="text-xs text-secondary mb-0">{{ $purchaseOrder->supplier->supplier_code ?? '' }}</p>
                                 </td>
-                                <td class="text-sm">{{ $purchaseOrder->warehouse->name ?? '—' }}</td>
+                                <td class="text-sm">{{ $purchaseOrder->warehouse->warehouse_name ?? '—' }}</td>
                                 <td class="text-sm">{{ $purchaseOrder->expected_date->format('d M Y') }}</td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">{{ number_format($purchaseOrder->total_amount, 2) }}</p>
@@ -85,7 +85,7 @@
                 </table>
             </div>
             <div class="px-4 pt-3">
-                {{ $purchaseOrder->links('pagination::bootstrap-5') }}
+                {{ $purchaseOrders->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>
