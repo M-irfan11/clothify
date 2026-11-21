@@ -12,10 +12,10 @@ return new class extends Migration
         Schema::create('stock_movements', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedInteger('warehouse_id');
+            $table->unsignedBigInteger('warehouse_id');
             $table->foreign('warehouse_id')->references('id')->on('warehouses')->restrictOnDelete();
 
-            $table->unsignedInteger('material_id')->nullable();
+            $table->unsignedBigInteger('material_id')->nullable();
             $table->foreign('material_id')->references('id')->on('materials')->restrictOnDelete();
 
             $table->foreignId('product_variant_id')->nullable()

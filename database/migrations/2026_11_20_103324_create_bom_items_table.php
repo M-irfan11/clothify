@@ -19,7 +19,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             // materials.id হলো INT UNSIGNED, তাই এখানেও unsignedInteger
-            $table->unsignedInteger('material_id');
+            $table->unsignedBigInteger('material_id');
             $table->foreign('material_id')
                 ->references('id')
                 ->on('materials')

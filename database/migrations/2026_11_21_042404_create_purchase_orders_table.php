@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('po_no', 30)->unique();
 
-            $table->unsignedInteger('supplier_id');
+            $table->unsignedBigInteger('supplier_id');
 
-            $table->unsignedInteger('warehouse_id'); // receiving warehouse
+            $table->unsignedBigInteger('warehouse_id'); // receiving warehouse
 
             $table->date('order_date');
             $table->date('expected_date');

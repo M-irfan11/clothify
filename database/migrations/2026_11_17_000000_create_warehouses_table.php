@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('warehouses', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('warehouse_name', 150);
             $table->string('warehouse_code', 20)->unique();
             $table->string('warehouse_type', 20)

@@ -15,7 +15,7 @@ return new class extends Migration
                 ->constrained('purchase_orders')
                 ->cascadeOnDelete();
 
-            $table->unsignedInteger('material_id');
+            $table->unsignedBigInteger('material_id');
 
             $table->foreign('material_id')
                 ->references('id')

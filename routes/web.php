@@ -13,6 +13,7 @@ use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\ProductionOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/home')->middleware('auth');
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('stock_movements', StockMovementController::class);
     Route::resource('purchase_orders', PurchaseOrderController::class);
     Route::resource('purchase_order_items', PurchaseOrderItemController::class);
+    Route::resource('production-orders', ProductionOrderController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
