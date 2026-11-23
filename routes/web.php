@@ -4,6 +4,7 @@ use App\Http\Controllers\BomItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProductionOrderController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductVariantsController;
 use App\Http\Controllers\ProfileController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\ProductionOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/home')->middleware('auth');
