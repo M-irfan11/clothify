@@ -27,7 +27,8 @@ class WarehouseTest extends TestCase
         $this->actingAs($editor)
             ->get(route('warehouses.create'))
             ->assertOk()
-            ->assertSee('Add Warehouse');
+            ->assertSee('Add Warehouse')
+            ->assertSee('href="'.route('warehouses.index').'"', escape: false);
 
         $createResponse = $this->actingAs($editor)->post(route('warehouses.store'), $data);
         $warehouse = Warehouse::query()->where('warehouse_code', $data['warehouse_code'])->firstOrFail();
@@ -72,6 +73,8 @@ class WarehouseTest extends TestCase
         $response = $this->actingAs($user)->get(route('warehouses.index'));
 
         $response->assertForbidden();
+        $this->get(route('home'))
+            ->assertDontSee('href="'.route('warehouses.index').'"', escape: false);
     }
 
     public function test_warehouse_code_must_be_unique_and_type_must_be_supported(): void
