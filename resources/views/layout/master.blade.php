@@ -56,7 +56,11 @@
         @endhasrole
         {{-- @endrole --}}
 
+<<<<<<< HEAD
         @hasanyrole('admin|editor')
+=======
+        @hasanyrole(['admin', 'editor'])
+>>>>>>> 3c7c2b475dd05bbf33fe4b08ac1cef602bcd8b8e
         <li class="nav-item">
             <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('warehouses.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('warehouses.index') }}">
               <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('warehouses.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">warehouse</i>

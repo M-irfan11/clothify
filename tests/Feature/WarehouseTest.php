@@ -77,6 +77,25 @@ class WarehouseTest extends TestCase
             ->assertDontSee('href="'.route('warehouses.index').'"', escape: false);
     }
 
+    public function test_warehouse_navigation_is_only_shown_to_admin_and_editor(): void
+    {
+        foreach (['admin', 'editor'] as $roleName) {
+            $user = $this->userWithRole($roleName);
+
+            $this->actingAs($user)
+                ->get(route('home'))
+                ->assertOk()
+                ->assertSee(route('warehouses.index'));
+        }
+
+        $user = $this->userWithRole('user');
+
+        $this->actingAs($user)
+            ->get(route('home'))
+            ->assertOk()
+            ->assertDontSee(route('warehouses.index'));
+    }
+
     public function test_warehouse_code_must_be_unique_and_type_must_be_supported(): void
     {
         $user = $this->userWithRole('editor');
