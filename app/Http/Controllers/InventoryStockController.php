@@ -18,7 +18,7 @@ class InventoryStockController extends Controller
         $stocks = InventoryStock::with([
                 'warehouse',
                 'material',
-                'productVariant.product.category',
+                'productVariant.product',
             ])
             ->when($request->warehouse_id, fn ($q, $id) => $q->where('warehouse_id', $id))
             ->orderBy('warehouse_id')
