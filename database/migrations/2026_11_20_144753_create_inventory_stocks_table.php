@@ -12,13 +12,19 @@ return new class extends Migration
         Schema::create('inventory_stocks', function (Blueprint $table) {
             $table->id();
 
+            $table->string('item_code')->nullable();
+            $table->string('item_name')->nullable();
+            $table->string('category_name')->nullable();
+
             $table->foreignId('warehouse_id')->constrained('warehouses')->restrictOnDelete();
+            $table->string('unit', 20)->nullable();
             $table->foreignId('material_id')->nullable()->constrained('materials')->restrictOnDelete();
             $table->foreignId('product_variant_id')->nullable()
                 ->constrained('product_variants')->restrictOnDelete();
 
             $table->decimal('quantity', 14, 3)->default(0);
             $table->decimal('reserved_qty', 14, 3)->default(0);
+            $table->decimal('total_qty', 14, 3)->default(0);
             $table->timestamp('updated_at')->nullable()->useCurrent()->useCurrentOnUpdate();
 
             $table->string('item_key', 30)->storedAs(

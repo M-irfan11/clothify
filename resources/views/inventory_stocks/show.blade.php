@@ -39,12 +39,24 @@
                     </p>
                 </div>
                 <div class="col-md-6 mb-4">
+                    <p class="text-xs text-uppercase text-secondary mb-1">Item Code</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $inventoryStock->material->material_code ?? $inventoryStock->productVariant->sku ?? '-' }}</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <p class="text-xs text-uppercase text-secondary mb-1">Item Name</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $inventoryStock->material->material_name ?? $inventoryStock->productVariant->product->product_name ?? 'Product' }}</p>
+                </div>
+                <div class="col-md-6 mb-4">
                     <p class="text-xs text-uppercase text-secondary mb-1">Quantity</p>
                     <p class="text-sm font-weight-bold mb-0">{{ $inventoryStock->quantity }}</p>
                 </div>
                 <div class="col-md-6 mb-4">
                     <p class="text-xs text-uppercase text-secondary mb-1">Reserved Quantity</p>
                     <p class="text-sm font-weight-bold mb-0">{{ $inventoryStock->reserved_qty }}</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <p class="text-xs text-uppercase text-secondary mb-1">Unit</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $inventoryStock->material->unit ?? 'PCS' }}</p>
                 </div>
                 <div class="col-md-6 mb-4">
                     <p class="text-xs text-uppercase text-secondary mb-1">Available Quantity</p>
