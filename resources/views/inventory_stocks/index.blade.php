@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($inventoryStocks as $inventoryStock)
+                        @forelse ($stocks as $inventoryStock)
                             <tr>
                                 <td class="text-sm">{{ $inventoryStock->warehouse->warehouse_name ?? '#'.$inventoryStock->warehouse_id }}</td>
                                 <td>
@@ -70,7 +70,7 @@
                 </table>
             </div>
             <div class="px-4 pt-3">
-                {{ $inventoryStocks->links('pagination::bootstrap-5') }}
+                {{ $stocks->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

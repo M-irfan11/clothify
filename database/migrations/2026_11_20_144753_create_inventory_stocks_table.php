@@ -12,12 +12,8 @@ return new class extends Migration
         Schema::create('inventory_stocks', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('warehouse_id');
-            $table->foreign('warehouse_id')->references('id')->on('warehouses')->restrictOnDelete();
-
-            $table->unsignedBigInteger('material_id')->nullable();
-            $table->foreign('material_id')->references('id')->on('materials')->restrictOnDelete();
-
+            $table->foreignId('warehouse_id')->constrained('warehouses')->restrictOnDelete();
+            $table->foreignId('material_id')->nullable()->constrained('materials')->restrictOnDelete();
             $table->foreignId('product_variant_id')->nullable()
                 ->constrained('product_variants')->restrictOnDelete();
 
@@ -25,7 +21,6 @@ return new class extends Migration
             $table->decimal('reserved_qty', 14, 3)->default(0);
             $table->timestamp('updated_at')->nullable()->useCurrent()->useCurrentOnUpdate();
 
-            // nullable composite UNIQUE সমাধান: generated column
             $table->string('item_key', 30)->storedAs(
                 "IF(material_id IS NOT NULL, CONCAT('M-', material_id), CONCAT('V-', product_variant_id))"
             );
@@ -34,6 +29,9 @@ return new class extends Migration
 
         DB::statement('ALTER TABLE inventory_stocks ADD CONSTRAINT chk_inventory_stocks_one_item
             CHECK ((material_id IS NULL) <> (product_variant_id IS NULL))');
+
+        DB::statement('ALTER TABLE inventory_stocks ADD CONSTRAINT chk_inventory_stocks_reserved
+            CHECK (reserved_qty <= quantity)');
     }
 
     public function down(): void

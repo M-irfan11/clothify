@@ -56,11 +56,7 @@
         @endhasrole
         {{-- @endrole --}}
 
-<<<<<<< HEAD
-        @hasanyrole('admin|editor')
-=======
         @hasanyrole(['admin', 'editor'])
->>>>>>> 3c7c2b475dd05bbf33fe4b08ac1cef602bcd8b8e
         <li class="nav-item">
             <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('warehouses.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('warehouses.index') }}">
               <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('warehouses.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">warehouse</i>
@@ -123,20 +119,20 @@
         </li>
 
         <li class="nav-item group/inventory">
-          <a class="nav-link group group/expanded relative rounded-xl transition-all duration-200 after:!hidden before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/inventory:before:opacity-100 group-hover/inventory:!bg-[#a36ec7] group-hover/inventory:!text-white {{ request()->routeIs('inventory_stocks.*', 'stock_movements.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}"
+          <a class="nav-link group group/expanded relative rounded-xl transition-all duration-200 after:!hidden before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/inventory:before:opacity-100 group-hover/inventory:!bg-[#a36ec7] group-hover/inventory:!text-white {{ request()->routeIs('inventoryStocks.*', 'stock_movements.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}"
             data-bs-toggle="collapse"
             href="#inventorySubmenu"
             aria-controls="inventorySubmenu"
-            aria-expanded="{{ request()->routeIs('inventory_stocks.*', 'stock_movements.*') ? 'true' : 'false' }}">
-              <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('inventory_stocks.*', 'stock_movements.*') ? '!opacity-100 !text-white' : 'group-hover/inventory:!opacity-100 group-hover/inventory:!text-white group-focus-visible:!opacity-100' }}">inventory</i>
-              <span class="nav-link-text ms-1 {{ request()->routeIs('inventory_stocks.*', 'stock_movements.*') ? '!text-white' : 'group-hover/inventory:!text-white group-focus-visible:!text-white' }}">Inventory</span>
+            aria-expanded="{{ request()->routeIs('inventoryStocks.*', 'stock_movements.*') ? 'true' : 'false' }}">
+              <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('inventoryStocks.*', 'stock_movements.*') ? '!opacity-100 !text-white' : 'group-hover/inventory:!opacity-100 group-hover/inventory:!text-white group-focus-visible:!opacity-100' }}">inventory</i>
+              <span class="nav-link-text ms-1 {{ request()->routeIs('inventoryStocks.*', 'stock_movements.*') ? '!text-white' : 'group-hover/inventory:!text-white group-focus-visible:!text-white' }}">Inventory</span>
               <span class="material-symbols-rounded ms-auto text-base transition-transform duration-200 group-aria-expanded/expanded:rotate-90" aria-hidden="true">chevron_right</span>
           </a>
 
-          <div class="collapse !visible {{ request()->routeIs('inventory_stocks.*', 'stock_movements.*') ? 'show' : '' }}" id="inventorySubmenu">
+          <div class="collapse !visible {{ request()->routeIs('inventoryStocks.*', 'stock_movements.*') ? 'show' : '' }}" id="inventorySubmenu">
               <ul class="nav flex-column ms-4 mt-1 border-start border-slate-200 ps-2">
                   <li class="nav-item group/submenu-item">
-                      <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('inventory_stocks.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('inventory_stocks.index') }}">
+                      <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('inventoryStocks.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('inventory_stocks.index') }}">
                           Inventory Stocks
                       </a>
                   </li>

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\inventory_stock;
+use App\Models\InventoryStock;
 use App\Models\Material;
 use App\Models\ProductVariant;
 use App\Models\Warehouse;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -14,94 +13,80 @@ use Illuminate\View\View;
 
 class InventoryStockController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $inventoryStocks = inventory_stock::query()
-            ->with(['warehouse', 'material', 'productVariant.product'])
-            ->orderByDesc('updated_at')
-            ->orderByDesc('id')
-            ->paginate(15);
+        $stocks = InventoryStock::with([
+                'warehouse',
+                'material',
+                'productVariant.product.category',
+            ])
+            ->when($request->warehouse_id, fn ($q, $id) => $q->where('warehouse_id', $id))
+            ->orderBy('warehouse_id')
+            ->paginate(20)
+            ->withQueryString();
 
-        return view('inventory_stock.index', compact('inventoryStocks'));
+        $warehouses = Warehouse::orderBy('warehouse_name')->get();
+
+        return view('inventory_stocks.index', compact('stocks', 'warehouses'));
     }
 
     public function create(): View
     {
-        return view('inventory_stock.create', $this->formData());
+        return view('inventory_stocks.create', $this->formData());
     }
 
     public function store(Request $request): RedirectResponse
     {
-        $inventoryStock = inventory_stock::create($this->validated($request));
+        $inventoryStock = InventoryStock::create($this->validated($request));
 
         return redirect()
             ->route('inventory_stocks.show', $inventoryStock)
             ->with('success', 'Inventory stock created successfully.');
     }
 
-    public function show(inventory_stock $inventory_stock): View
+    public function show(InventoryStock $inventoryStock): View
     {
-        $inventory_stock->load(['warehouse', 'material', 'productVariant.product']);
+        $inventoryStock->load(['warehouse', 'material', 'productVariant.product']);
 
-        return view('inventory_stock.show', ['inventoryStock' => $inventory_stock]);
+        return view('inventory_stocks.show', compact('inventoryStock'));
     }
 
-    public function edit(inventory_stock $inventory_stock): View
+    public function edit(InventoryStock $inventoryStock): View
     {
-        return view('inventory_stock.edit', ['inventoryStock' => $inventory_stock] + $this->formData());
+        return view('inventory_stocks.edit', ['inventoryStock' => $inventoryStock] + $this->formData());
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, inventory_stock $inventory_stock): RedirectResponse
+    public function update(Request $request, InventoryStock $inventoryStock): RedirectResponse
     {
-        $inventory_stock->update($this->validated($request, $inventory_stock));
+        $inventoryStock->update($this->validated($request, $inventoryStock));
 
         return redirect()
-            ->route('inventory_stocks.show', $inventory_stock)
+            ->route('inventory_stocks.show', $inventoryStock)
             ->with('success', 'Inventory stock updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(inventory_stock $inventory_stock): RedirectResponse
+    public function destroy(InventoryStock $inventoryStock): RedirectResponse
     {
-        $inventory_stock->delete();
+        $inventoryStock->delete();
 
         return redirect()
             ->route('inventory_stocks.index')
             ->with('success', 'Inventory stock deleted successfully.');
     }
 
-    /**
-     * @return array{
-     *     warehouses: Collection<int, Warehouse>,
-     *     materials: Collection<int, Material>,
-     *     variants: Collection<int, ProductVariant>
-     * }
-     */
     private function formData(): array
     {
         return [
-            'warehouses' => Warehouse::query()->orderBy('warehouse_name')->get(),
-            'materials' => Material::query()->where('status', 'active')->orderBy('material_name')->get(),
-            'variants' => ProductVariant::query()
-                ->with('product')
+            'warehouses' => Warehouse::orderBy('warehouse_name')->get(),
+            'materials'  => Material::where('status', 'active')->orderBy('material_name')->get(),
+            'variants'   => ProductVariant::with('product')
                 ->where('status', 'active')
                 ->orderBy('sku')
                 ->get(),
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    private function validated(Request $request, ?inventory_stock $inventoryStock = null): array
+    private function validated(Request $request, ?InventoryStock $inventoryStock = null): array
     {
         $warehouseId = $request->input('warehouse_id');
 
@@ -111,36 +96,22 @@ class InventoryStockController extends Controller
             ->where('warehouse_id', $warehouseId);
 
         if ($inventoryStock !== null) {
-            $materialRule->ignore($inventoryStock);
-            $variantRule->ignore($inventoryStock);
+            $materialRule->ignore($inventoryStock->id);
+            $variantRule->ignore($inventoryStock->id);
         }
 
         return $request->validate([
             'warehouse_id' => ['required', 'integer', 'exists:warehouses,id'],
             'material_id' => [
-                'nullable',
-                'required_without:product_variant_id',
-                'prohibits:product_variant_id',
-                'integer',
-                'exists:materials,id',
-                $materialRule,
+                'nullable', 'required_without:product_variant_id', 'prohibits:product_variant_id',
+                'integer', 'exists:materials,id', $materialRule,
             ],
             'product_variant_id' => [
-                'nullable',
-                'required_without:material_id',
-                'prohibits:material_id',
-                'integer',
-                'exists:product_variants,id',
-                $variantRule,
+                'nullable', 'required_without:material_id', 'prohibits:material_id',
+                'integer', 'exists:product_variants,id', $variantRule,
             ],
-            'quantity' => ['required', 'numeric', 'min:0', 'max:99999999999.999'],
-            'reserved_qty' => [
-                'required',
-                'numeric',
-                'min:0',
-                'max:99999999999.999',
-                'lte:quantity',
-            ],
+            'quantity'     => ['required', 'numeric', 'min:0', 'max:99999999999.999'],
+            'reserved_qty' => ['required', 'numeric', 'min:0', 'max:99999999999.999', 'lte:quantity'],
         ]);
     }
 }

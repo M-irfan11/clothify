@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class inventory_stock extends Model
+class InventoryStock extends Model
 {
-    protected $table = 'inventory_stocks';
+    public $timestamps = false; // updated_at DB নিজে handle করছে
 
     protected $fillable = [
         'warehouse_id',
@@ -17,14 +17,11 @@ class inventory_stock extends Model
         'reserved_qty',
     ];
 
-    public $timestamps = false;
-
     protected function casts(): array
     {
         return [
-            'quantity' => 'decimal:3',
+            'quantity'     => 'decimal:3',
             'reserved_qty' => 'decimal:3',
-            'updated_at' => 'datetime',
         ];
     }
 
@@ -41,5 +38,11 @@ class inventory_stock extends Model
     public function productVariant(): BelongsTo
     {
         return $this->belongsTo(ProductVariant::class);
+    }
+
+    // available = quantity - reserved
+    public function getAvailableQtyAttribute(): string
+    {
+        return bcsub((string) $this->quantity, (string) $this->reserved_qty, 3);
     }
 }

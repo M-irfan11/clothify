@@ -1,26 +1,5 @@
 @extends('layout.master')
 @section('content')
-<<<<<<< HEAD
-<div class="container-fluid py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h4 class="mb-1">Add Product Variant</h4>
-            <p class="text-sm text-secondary mb-0">Enter variant, pricing, and inventory details.</p>
-        </div>
-        <a href="{{ route('product_variants.index') }}" class="btn btn-outline-dark mb-0">Back to Variants</a>
-    </div>
-
-    <div class="card">
-        <div class="card-body">
-            <form action="{{ route('product_variants.store') }}" method="POST">
-                @csrf
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="product_id" class="form-label">Product</label>
-                        <select id="product_id" name="product_id" class="form-select @error('product_id') is-invalid @enderror" required>
-                            <option value="">Select product</option>
-=======
     <div class="container-fluid py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
@@ -38,7 +17,6 @@
                         <label class="form-label">Product <span class="text-danger">*</span></label>
                         <select name="product_id" class="form-select @error('product_id') is-invalid @enderror" required>
                             <option value="">-- Select Product --</option>
->>>>>>> 3c7c2b475dd05bbf33fe4b08ac1cef602bcd8b8e
                             @foreach ($products as $product)
                                 <option value="{{ $product->id }}" {{ old('product_id') == $product->id ? 'selected' : '' }}>
                                     {{ $product->product_name }}

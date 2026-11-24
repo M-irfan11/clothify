@@ -38,7 +38,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductsController::class);
     Route::resource('product_variants', ProductVariantsController::class);
     Route::resource('bom_items', BomItemController::class);
-    Route::resource('inventory_stocks', InventoryStockController::class);
+
+    // Route::resource('inventory_stocks', InventoryStockController::class);
+
+    Route::resource('inventory_stocks', InventoryStockController::class)
+    ->parameters(['inventory_stocks' => 'inventoryStock'])
+    ->names('inventory_stocks');
+
+
     Route::resource('stock_movements', StockMovementController::class);
     Route::resource('purchase_orders', PurchaseOrderController::class);
     Route::resource('purchase_order_items', PurchaseOrderItemController::class);
