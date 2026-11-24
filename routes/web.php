@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProductionOrderController;
+use App\Http\Controllers\ProductionOrderMaterialController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductVariantsController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('purchase_orders', PurchaseOrderController::class);
     Route::resource('purchase_order_items', PurchaseOrderItemController::class);
     Route::resource('production-orders', ProductionOrderController::class);
+    Route::get('production-order-materials', [ProductionOrderMaterialController::class, 'all'])
+        ->name('production-order-materials.index');
+    Route::resource('production-orders.materials', ProductionOrderMaterialController::class)
+        ->parameters([
+            'production-orders' => 'productionOrder',
+            'materials' => 'productionOrderMaterial',
+        ])
+        ->names('production-orders.materials');
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

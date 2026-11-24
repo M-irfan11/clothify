@@ -156,11 +156,32 @@
                 <span class="nav-link-text ms-1 {{ request()->routeIs('purchase_order_items.*') ? '!text-white' : 'group-hover:!text-white' }}">PO Items</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('production-orders.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('production-orders.index') }}">
-                <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('production-orders.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">factory</i>
-                <span class="nav-link-text ms-1 {{ request()->routeIs('production-orders.*') ? '!text-white' : 'group-hover:!text-white' }}">Production Orders</span>
+        <li class="nav-item group/production">
+            <a class="nav-link group group/expanded relative rounded-xl transition-all duration-200 after:!hidden before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/production:before:opacity-100 group-hover/production:!bg-[#a36ec7] group-hover/production:!text-white {{ request()->routeIs('production-orders.*', 'production-order-materials.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}"
+            data-bs-toggle="collapse"
+            href="#productionSubmenu"
+            aria-controls="productionSubmenu"
+            aria-expanded="{{ request()->routeIs('production-orders.*', 'production-order-materials.*') ? 'true' : 'false' }}">
+                <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('production-orders.*', 'production-order-materials.*') ? '!opacity-100 !text-white' : 'group-hover/production:!opacity-100 group-hover/production:!text-white group-focus-visible:!opacity-100' }}">factory</i>
+                <span class="nav-link-text ms-1 {{ request()->routeIs('production-orders.*', 'production-order-materials.*') ? '!text-white' : 'group-hover/production:!text-white group-focus-visible:!text-white' }}">Production</span>
+                <span class="material-symbols-rounded ms-auto text-base transition-transform duration-200 group-aria-expanded/expanded:rotate-90" aria-hidden="true">chevron_right</span>
             </a>
+
+            <div class="collapse !visible {{ request()->routeIs('production-orders.*', 'production-order-materials.*') ? 'show' : '' }}" id="productionSubmenu">
+                <ul class="nav flex-column ms-4 mt-1 border-start border-slate-200 ps-2">
+                    <li class="nav-item group/submenu-item">
+                        <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('production-orders.index', 'production-orders.create', 'production-orders.show', 'production-orders.edit') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('production-orders.index') }}">
+                            Production Orders
+                        </a>
+                    </li>
+                    <li class="nav-item group/submenu-item">
+                        @php($currentProductionOrder = request()->route('productionOrder'))
+                        <a class="nav-link group relative rounded-lg transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-5 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white group-hover/submenu-item:before:opacity-100 group-hover/submenu-item:!bg-[#a36ec7] group-hover/submenu-item:!text-white !py-2 !text-sm {{ request()->routeIs('production-orders.materials.*', 'production-order-materials.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-sm shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ $currentProductionOrder ? route('production-orders.materials.index', $currentProductionOrder) : route('production-order-materials.index') }}">
+                            Production Order Materials
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
 

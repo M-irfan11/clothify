@@ -21,6 +21,7 @@
         </div>
         <div>
             <a href="{{ route('production-orders.index') }}" class="btn btn-outline-dark mb-0">Back</a>
+            <a href="{{ route('production-orders.materials.index', $order) }}" class="btn btn-action-view mb-0">Manage Materials</a>
             <a href="{{ route('production-orders.edit', $order) }}" class="btn btn-action-edit mb-0">Edit Production Order</a>
         </div>
     </div>
