@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
             'materials' => 'productionOrderMaterial',
         ])
         ->names('production-orders.materials');
-     Route::resource('quality-inspection', QualityInspectionController::class);
+     Route::resource('quality_inspections', QualityInspectionController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

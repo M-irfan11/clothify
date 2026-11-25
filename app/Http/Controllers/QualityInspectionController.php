@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Material;
 use App\Models\ProductionOrder;
 use App\Models\ProductVariant;
@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
+
 class QualityInspectionController extends Controller
 {
     public function index(): View
@@ -20,16 +21,17 @@ class QualityInspectionController extends Controller
             ->orderByDesc('inspection_date')
             ->paginate(15);
 
-        return view('quality_inspections.index', compact('inspections'));
+        return view('quality_inspection.index', compact('inspections'));
     }
 
     public function create(): View
     {
-        return view('quality_inspections.create', [
+        return view('quality_inspection.create', [
             'purchaseOrderItems' => PurchaseOrderItem::all(),
             'productionOrders'   => ProductionOrder::all(),
             'materials'          => Material::all(),
             'productVariants'    => ProductVariant::all(),
+            'users' => User::orderBy('name')->get(),
         ]);
     }
 
@@ -38,23 +40,24 @@ class QualityInspectionController extends Controller
         $inspection = QualityInspection::create($request->validate($this->rules()));
 
         return redirect()
-            ->route('quality-inspections.show', $inspection)
+            ->route('quality_inspections.show', $inspection)
             ->with('success', 'Quality inspection created successfully.');
     }
 
     public function show(QualityInspection $qualityInspection): View
     {
-        return view('quality_inspections.show', ['inspection' => $qualityInspection]);
+        return view('quality_inspection.show', ['inspection' => $qualityInspection]);
     }
 
     public function edit(QualityInspection $qualityInspection): View
     {
-        return view('quality_inspections.edit', [
+        return view('quality_inspection.edit', [
             'inspection'         => $qualityInspection,
             'purchaseOrderItems' => PurchaseOrderItem::all(),
             'productionOrders'   => ProductionOrder::all(),
             'materials'          => Material::all(),
             'productVariants'    => ProductVariant::all(),
+            'users' => User::orderBy('name')->get(),
         ]);
     }
 
@@ -63,7 +66,7 @@ class QualityInspectionController extends Controller
         $qualityInspection->update($request->validate($this->rules($qualityInspection)));
 
         return redirect()
-            ->route('quality-inspections.show', $qualityInspection)
+            ->route('quality_inspections.show', $qualityInspection)
             ->with('success', 'Quality inspection updated successfully.');
     }
 
@@ -72,7 +75,7 @@ class QualityInspectionController extends Controller
         $qualityInspection->delete();
 
         return redirect()
-            ->route('quality-inspections.index')
+            ->route('quality_inspections.index')
             ->with('success', 'Quality inspection deleted successfully.');
     }
 

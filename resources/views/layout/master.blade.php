@@ -183,6 +183,12 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link group relative rounded-xl transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:z-10 before:my-auto before:h-6 before:w-1 before:rounded-r before:bg-orange-500 before:content-[''] before:transition-opacity focus-visible:before:opacity-100 focus-visible:!bg-[#a36ec7] focus-visible:!text-white {{ request()->routeIs('quality_inspections.*') ? 'before:opacity-100 !bg-[#a36ec7] !text-white shadow-md shadow-purple-200' : 'before:opacity-0 hover:before:opacity-100 !text-slate-600 hover:!bg-[#a36ec7] hover:!text-white' }}" href="{{ route('quality_inspections.index') }}">
+                <i class="material-symbols-rounded opacity-5 {{ request()->routeIs('quality_inspections.*') ? '!opacity-100 !text-white' : 'group-hover:!opacity-100 group-hover:!text-white' }}">fact_check</i>
+                <span class="nav-link-text ms-1 {{ request()->routeIs('quality_inspections.*') ? '!text-white' : 'group-hover:!text-white' }}">Quality Inspections</span>
+            </a>
+        </li>
 
 
 
