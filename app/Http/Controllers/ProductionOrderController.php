@@ -87,7 +87,9 @@ class ProductionOrderController extends Controller
             'start_date' => ['required', 'date'],
             'due_date' => ['required', 'date', 'after_or_equal:start_date'],
             'completed_date' => ['nullable', 'date', 'after_or_equal:start_date'],
-            'status' => ['sometimes', Rule::in(ProductionOrder::STATUSES)],
+            // The submitted value is the status key (for example, "planned"),
+            // while STATUSES contains the human-readable labels as values.
+            'status' => ['sometimes', Rule::in(array_keys(ProductionOrder::STATUSES))],
             'remarks' => ['nullable', 'string', 'max:255'],
         ];
     }

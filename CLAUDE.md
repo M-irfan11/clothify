@@ -5,7 +5,7 @@
 
 ## Foundational Context
 
-This application is a Laravel application running on PHP 8.3. Always use the APIs that match the installed major version of each package — do not assume a version.
+This application is a Laravel application running on PHP 8.2. Always use the APIs that match the installed major version of each package — do not assume a version.
 
 Before relying on a package's API, confirm its installed version:
 - PHP packages: run `composer show --direct` to list direct dependencies with versions, or `composer show <vendor/package>` for a single package.
@@ -150,6 +150,13 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 ### Models
 
 - Casts can and likely should be set in a `casts()` method on a model rather than the `$casts` property. Follow existing conventions from other models.
+
+=== pint/core rules ===
+
+# Laravel Pint Code Formatter
+
+- If you have modified any PHP files, you must run `vendor/bin/pint --dirty --format agent` before finalizing changes to ensure your code matches the project's expected style.
+- Do not run `vendor/bin/pint --test --format agent`, simply run `vendor/bin/pint --format agent` to fix any formatting issues.
 
 === phpunit/core rules ===
 

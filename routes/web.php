@@ -15,6 +15,8 @@ use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\QualityInspectionController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/home')->middleware('auth');
@@ -59,6 +61,7 @@ Route::middleware('auth')->group(function () {
             'materials' => 'productionOrderMaterial',
         ])
         ->names('production-orders.materials');
+     Route::resource('quality-inspection', QualityInspectionController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

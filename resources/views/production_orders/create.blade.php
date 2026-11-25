@@ -12,6 +12,16 @@
 
     <div class="card">
         <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <strong>Production order could not be saved.</strong>
+                    <ul class="mb-0 mt-2">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('production-orders.store') }}" method="POST">
                 @csrf
                 <div class="row">
