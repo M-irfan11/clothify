@@ -29,8 +29,8 @@
                         <label for="customer_type" class="form-label">Customer Type</label>
                         <select id="customer_type" name="customer_type" class="form-select @error('customer_type') is-invalid @enderror" required>
                             <option value="">Select type</option>
-                            @foreach (\App\Models\Customer::TYPES as $value => $label)
-                                <option value="{{ $value }}" @selected(old('customer_type') === $value)>{{ $label }}</option>
+                            @foreach (\App\Models\Customer::TYPES as $type)
+                                <option value="{{ $type }}" @selected(old('customer_type') === $type)>{{ ucfirst($type) }}</option>
                             @endforeach
                         </select>
                         @error('customer_type') <div class="invalid-feedback">{{ $message }}</div> @enderror
