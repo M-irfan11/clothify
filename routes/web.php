@@ -4,6 +4,7 @@ use App\Http\Controllers\BomItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductionOrderController;
 use App\Http\Controllers\ProductionOrderMaterialController;
 use App\Http\Controllers\ProductsController;
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('customers', CustomerController::class);
     Route::resource('materials', MaterialController::class);
     Route::resource('products', ProductsController::class);
     Route::resource('product_variants', ProductVariantsController::class);

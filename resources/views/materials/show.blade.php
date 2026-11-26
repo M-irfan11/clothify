@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid materials-page py-4">
     @if (session('success'))
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
@@ -12,12 +12,12 @@
             <p class="text-sm text-secondary mb-0">Material details</p>
         </div>
         <div>
-            <a href="{{ route('materials.index') }}" class="btn btn-outline-dark mb-0">Back</a>
-            <a href="{{ route('materials.edit', $material) }}" class="btn btn-action-edit mb-0">Edit Material</a>
+            <a href="{{ route('materials.index') }}" class="btn btn-material-outline mb-0">Back</a>
+            <a href="{{ route('materials.edit', $material) }}" class="btn btn-material-primary mb-0">Edit Material</a>
         </div>
     </div>
 
-    <div class="card">
+    <div class="card materials-card">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6 mb-4">

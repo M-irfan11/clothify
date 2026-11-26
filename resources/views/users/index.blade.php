@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     <div class="card-body px-4 pb-4">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered [&>tbody>tr:last-child>td]:!border">
                             <thead>
                                 <tr>
                                     <th>ID</th>

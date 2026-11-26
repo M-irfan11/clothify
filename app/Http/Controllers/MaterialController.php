@@ -18,7 +18,14 @@ class MaterialController extends Controller
             ->orderByDesc('created_at')
             ->paginate(15);
 
-        return view('materials.index', compact('materials'));
+        $materialStats = [
+            'total' => Material::query()->count(),
+            'active' => Material::query()->where('status', 'active')->count(),
+            'inactive' => Material::query()->where('status', 'inactive')->count(),
+            'categories' => Material::query()->distinct('category')->count('category'),
+        ];
+
+        return view('materials.index', compact('materials', 'materialStats'));
     }
 
     public function create(): View

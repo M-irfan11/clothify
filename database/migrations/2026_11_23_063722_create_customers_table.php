@@ -13,7 +13,22 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('customer_code', 30)->unique();
+            $table->string('customer_name', 30);
+            $table->string('customer_type', 20);
+            $table->string('contact_person', 100)->nullable();
+            $table->string('phone', 20);
+            $table->string('email', 150)->nullable();
+            $table->string('address', 255);
+            $table->string('buyer_referance', 100);
+            $table->decimal('credit_limit', 18, 2)->default(0);
+            $table->string('status', 20)->default('active');
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index('customer_type');
+            $table->index('status');
         });
     }
 

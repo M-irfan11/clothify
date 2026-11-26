@@ -1,16 +1,16 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid materials-page py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h4 class="mb-1">Add Material</h4>
             <p class="text-sm text-secondary mb-0">Enter material and inventory threshold details.</p>
         </div>
-        <a href="{{ route('materials.index') }}" class="btn btn-outline-dark mb-0">Back to Materials</a>
+        <a href="{{ route('materials.index') }}" class="btn btn-material-outline mb-0">Back to Materials</a>
     </div>
 
-    <div class="card">
+    <div class="card materials-card">
         <div class="card-body">
             <form action="{{ route('materials.store') }}" method="POST">
                 @csrf
@@ -82,8 +82,8 @@
                         @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn bg-gradient-dark mb-0">Save Material</button>
-                <a href="{{ route('materials.index') }}" class="btn btn-outline-secondary mb-0">Cancel</a>
+                <button type="submit" class="btn btn-material-primary mb-0">Save Material</button>
+                <a href="{{ route('materials.index') }}" class="btn btn-material-outline mb-0">Cancel</a>
             </form>
         </div>
     </div>
