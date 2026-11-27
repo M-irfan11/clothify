@@ -27,6 +27,11 @@
                         @error('material_name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
+                        <label for="sales_order_number" class="form-label">Sales Order Number <span class="text-secondary">(optional)</span></label>
+                        <input id="sales_order_number" name="sales_order_number" type="text" maxlength="30" value="{{ old('sales_order_number', $material->sales_order_number) }}" class="form-control @error('sales_order_number') is-invalid @enderror">
+                        @error('sales_order_number') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="supplier_id" class="form-label">Supplier <span class="text-secondary">(optional)</span></label>
                         <select id="supplier_id" name="supplier_id" class="form-select @error('supplier_id') is-invalid @enderror">
                             <option value="">No supplier assigned</option>

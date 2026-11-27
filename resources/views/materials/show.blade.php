@@ -29,6 +29,10 @@
                     <p class="text-sm font-weight-bold mb-0">{{ $material->supplier?->company_name ?? 'Not assigned' }}</p>
                 </div>
                 <div class="col-md-6 mb-4">
+                    <p class="text-xs text-uppercase text-secondary mb-1">Sales Order Number</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $material->sales_order_number ?? 'Not assigned' }}</p>
+                </div>
+                <div class="col-md-6 mb-4">
                     <p class="text-xs text-uppercase text-secondary mb-1">Category</p>
                     <p class="text-sm font-weight-bold mb-0">{{ $material->category_label }}</p>
                 </div>

@@ -18,8 +18,7 @@
         .bom-view-page .bom-chip { background: var(--bom-purple-soft); border-radius: 999px; color: var(--bom-purple); display: inline-block; font-size: 12px; font-weight: 700; padding: 6px 11px; }
         .bom-view-page .bom-side-card { padding: 22px; }
         .bom-view-page .bom-side-icon { align-items: center; background: #fff3d9; border-radius: 10px; color: #966500; display: flex; height: 36px; justify-content: center; width: 36px; }
-        .bom-view-page .bom-primary { background: var(--bom-purple); border: 0; color: #fff; box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
-        .bom-view-page .bom-primary:hover { background: #5d318f; color: #fff; }
+        .bom-view-page .bom-primary { box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
         @media (max-width: 767.98px) { .bom-view-page .bom-view-topbar, .bom-view-page .bom-view-card { padding: 20px; } }
     </style>
 @endsection

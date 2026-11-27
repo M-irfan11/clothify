@@ -37,6 +37,7 @@ class MaterialTest extends TestCase
         $this->assertDatabaseHas('materials', [
             'material_code' => $data['material_code'],
             'material_name' => $data['material_name'],
+            'sales_order_number' => $data['sales_order_number'],
             'supplier_id' => $supplier->id,
         ]);
 
@@ -47,7 +48,8 @@ class MaterialTest extends TestCase
 
         $this->get(route('materials.show', $material))
             ->assertOk()
-            ->assertSee($data['material_code']);
+            ->assertSee($data['material_code'])
+            ->assertSee($data['sales_order_number']);
 
         $this->get(route('materials.edit', $material))
             ->assertOk()
@@ -98,6 +100,22 @@ class MaterialTest extends TestCase
         ])->assertSessionHasErrors(['supplier_id', 'category', 'unit', 'unit_cost']);
     }
 
+    public function test_sales_order_number_is_optional(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $data = $this->materialData();
+        unset($data['sales_order_number']);
+
+        $this->post(route('materials.store'), $data)
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseHas('materials', [
+            'material_code' => $data['material_code'],
+            'sales_order_number' => null,
+        ]);
+    }
+
     private function supplierData(): array
     {
         return [
@@ -121,6 +139,7 @@ class MaterialTest extends TestCase
             'supplier_id' => $supplierId,
             'material_code' => 'MAT-001',
             'material_name' => 'Cotton Thread',
+            'sales_order_number' => 'SO-20261127-001',
             'category' => 'thread',
             'unit' => 'cone',
             'unit_cost' => '12.50',

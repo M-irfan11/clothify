@@ -16,8 +16,7 @@
         .bom-form-page .form-control, .bom-form-page .form-select { border: 1px solid #e2dee9; border-radius: 9px; color: #3d384b; min-height: 45px; }
         .bom-form-page .form-control:focus, .bom-form-page .form-select:focus { border-color: var(--bom-purple); box-shadow: 0 0 0 .2rem rgba(112, 65, 165, .12); }
         .bom-form-page .field-hint { color: var(--bom-muted); font-size: 11px; margin-top: 7px; }
-        .bom-form-page .bom-primary { background: var(--bom-purple); border: 0; color: #fff; box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
-        .bom-form-page .bom-primary:hover { background: #5d318f; color: #fff; }
+        .bom-form-page .bom-primary { box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
         .bom-form-page .bom-help-card { padding: 22px; }
         .bom-form-page .bom-help-icon { align-items: center; background: var(--bom-purple-soft); border-radius: 10px; color: var(--bom-purple); display: flex; height: 36px; justify-content: center; width: 36px; }
         @media (max-width: 767.98px) { .bom-form-page .bom-form-topbar, .bom-form-page .bom-form-card { padding: 20px; } }

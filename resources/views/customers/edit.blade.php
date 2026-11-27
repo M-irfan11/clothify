@@ -51,9 +51,9 @@
                         @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="buyer_reference" class="form-label">Buyer Reference <span class="text-secondary">(optional)</span></label>
-                        <input id="buyer_reference" name="buyer_reference" type="text" maxlength="100" value="{{ old('buyer_reference', $customer->buyer_reference) }}" class="form-control @error('buyer_reference') is-invalid @enderror">
-                        @error('buyer_reference') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                        <label for="buyer_referance" class="form-label">Buyer Reference</label>
+                        <input id="buyer_referance" name="buyer_referance" type="text" maxlength="100" value="{{ old('buyer_referance', $customer->buyer_referance) }}" class="form-control @error('buyer_referance') is-invalid @enderror" required>
+                        @error('buyer_referance') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="credit_limit" class="form-label">Credit Limit</label>

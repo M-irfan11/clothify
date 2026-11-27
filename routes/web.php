@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\BomItemController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InventoryStockController;
 use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductionOrderController;
 use App\Http\Controllers\ProductionOrderMaterialController;
 use App\Http\Controllers\ProductsController;
@@ -12,12 +12,12 @@ use App\Http\Controllers\ProductVariantsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\PurchaseOrderItemController;
+use App\Http\Controllers\QualityInspectionController;
+use App\Http\Controllers\SaleOrderController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\QualityInspectionController;
-
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/home')->middleware('auth');
@@ -37,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('sales', SaleOrderController::class)
+        ->parameters(['sales' => 'saleOrder'])
+        ->names('sales_orders');
     Route::resource('suppliers', SupplierController::class);
     Route::resource('customers', CustomerController::class);
     Route::resource('materials', MaterialController::class);
@@ -47,9 +50,8 @@ Route::middleware('auth')->group(function () {
     // Route::resource('inventory_stocks', InventoryStockController::class);
 
     Route::resource('inventory_stocks', InventoryStockController::class)
-    ->parameters(['inventory_stocks' => 'inventoryStock'])
-    ->names('inventory_stocks');
-
+        ->parameters(['inventory_stocks' => 'inventoryStock'])
+        ->names('inventory_stocks');
 
     Route::resource('stock_movements', StockMovementController::class);
     Route::resource('purchase_orders', PurchaseOrderController::class);
@@ -63,7 +65,7 @@ Route::middleware('auth')->group(function () {
             'materials' => 'productionOrderMaterial',
         ])
         ->names('production-orders.materials');
-     Route::resource('quality_inspections', QualityInspectionController::class);
+    Route::resource('quality_inspections', QualityInspectionController::class);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

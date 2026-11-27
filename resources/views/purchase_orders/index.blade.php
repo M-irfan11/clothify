@@ -1,26 +1,29 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
-    <div class="mb-3">
-        <h4 class="mb-1">Purchase Orders</h4>
-        <p class="text-sm text-secondary mb-0">Manage raw material purchase orders.</p>
+<div class="container-fluid crud-page py-4">
+    <div class="crud-heading">
+        <div>
+            <div class="crud-eyebrow">Procurement</div>
+            <h4 class="mb-1">Purchase Orders</h4>
+            <p class="text-sm text-secondary mb-0">Manage raw material purchase orders.</p>
+        </div>
+        <a href="{{ route('purchase_orders.create') }}" class="btn bg-gradient-dark mb-0">
+            <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
+            New purchase order
+        </a>
     </div>
 
     @if (session('success'))
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
 
-    <div class="card">
+    <div class="card crud-list-card">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">Purchase Order List</h6>
                 <p class="text-xs text-secondary mb-0">Review and manage purchase orders</p>
             </div>
-            <a href="{{ route('purchase_orders.create') }}" class="btn btn-sm bg-gradient-dark mb-0">
-                <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
-                Add Purchase Order
-            </a>
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive">

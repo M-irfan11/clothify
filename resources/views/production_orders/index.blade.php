@@ -9,26 +9,29 @@
         'cancelled' => 'bg-gradient-danger',
     ];
 @endphp
-<div class="container-fluid py-4">
-    <div class="mb-3">
-        <h4 class="mb-1">Production Orders</h4>
-        <p class="text-sm text-secondary mb-0">Plan and track production runs.</p>
+<div class="container-fluid crud-page py-4">
+    <div class="crud-heading">
+        <div>
+            <div class="crud-eyebrow">Production</div>
+            <h4 class="mb-1">Production Orders</h4>
+            <p class="text-sm text-secondary mb-0">Plan and track production runs.</p>
+        </div>
+        <a href="{{ route('production-orders.create') }}" class="btn bg-gradient-dark mb-0">
+            <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
+            New production order
+        </a>
     </div>
 
     @if (session('success'))
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
 
-    <div class="card">
+    <div class="card crud-list-card">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">Production Order List</h6>
                 <p class="text-xs text-secondary mb-0">Review and manage production orders</p>
             </div>
-            <a href="{{ route('production-orders.create') }}" class="btn btn-sm bg-gradient-dark mb-0">
-                <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
-                Add Production Order
-            </a>
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive">

@@ -8,6 +8,114 @@
 @tailwind components;
 
 @layer components {
+    /* Shared CRUD visual language: every module gets the same soft hero and card rhythm. */
+    .crud-page {
+        background: #f8f7fb;
+        min-height: calc(100vh - 1rem);
+    }
+
+    .crud-page .crud-heading {
+        align-items: center;
+        background: #fff;
+        border: 1px solid #e9e6ef;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(42, 29, 65, .04);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        padding: 24px 28px;
+    }
+
+    .crud-page > .mb-3:not(.alert),
+    .crud-page > .d-flex.flex-wrap.mb-4 {
+        align-items: center;
+        background: #fff;
+        border: 1px solid #e9e6ef;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(42, 29, 65, .04);
+        padding: 24px 28px;
+    }
+
+    .crud-page > .mb-3:not(.alert) h4,
+    .crud-page > .d-flex.flex-wrap.mb-4 h4 {
+        color: #242136;
+        font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+        font-weight: 700;
+        letter-spacing: -.03em;
+    }
+
+    .crud-page .crud-heading h4 {
+        color: #242136;
+        font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+        font-weight: 700;
+        letter-spacing: -.03em;
+        margin-bottom: 6px;
+    }
+
+    .crud-page .crud-heading p {
+        color: #747187 !important;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+    .crud-page .crud-heading .crud-eyebrow {
+        color: #7041a5;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        margin-bottom: 7px;
+        text-transform: uppercase;
+    }
+
+    .crud-page .crud-list-card {
+        background: #fff;
+        border: 1px solid #e9e6ef;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(42, 29, 65, .04);
+        overflow: hidden;
+    }
+
+    .crud-page .crud-list-card .card-header {
+        border-bottom: 1px solid #eeeaf3 !important;
+    }
+
+    .crud-page .crud-list-card .card-header h6 {
+        color: #242136;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .crud-page .crud-list-card .card-header p {
+        color: #747187 !important;
+    }
+
+    .crud-page .crud-list-card .table-responsive {
+        overflow-x: auto;
+    }
+
+    .crud-page .crud-list-card table {
+        min-width: 760px;
+    }
+
+    .crud-page .crud-list-card .card-body {
+        padding: 0 0 18px;
+    }
+
+    @media (max-width: 767.98px) {
+        .crud-page .crud-heading,
+        .crud-page > .mb-3:not(.alert),
+        .crud-page > .d-flex.flex-wrap.mb-4 {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .crud-page .crud-heading .btn {
+            width: 100%;
+        }
+    }
+
     .materials-page {
         background: #f8f7fb;
         min-height: calc(100vh - 1rem);
@@ -82,6 +190,10 @@
     .material-stat-icon-success { color: #259b5a; }
     .material-stat-icon-danger { color: #cf3e42; }
     .material-stat-icon-warning { color: #ba7a18; }
+
+    .material-stat-warning strong { color: #ba7a18; }
+    .material-stat-danger strong { color: #b52f34; }
+    .material-stat-muted strong { color: #242136; }
 
     .materials-card {
         border: 1px solid #e6e1eb;
@@ -168,8 +280,12 @@
         padding: 5px 9px;
     }
 
-    .material-status-success { background: #dff4e7; color: #207d4a; }
-    .material-status-muted { background: #eeeaf2; color: #696274; }
+    .material-status-in { background: #dff4e7; color: #207d4a; }
+    .material-status-low { background: #ffebc7; color: #a05b00; }
+    .material-status-out { background: #fbdcdd; color: #b52f34; }
+    .material-progress-in span { background: #27a35e; }
+    .material-progress-low span { background: #e69b16; }
+    .material-progress-out span { background: #d83b43; }
 
     .material-menu-button {
         background: #fff;
@@ -203,42 +319,61 @@
         .materials-footer nav { margin-left: 0; }
     }
 
+    .btn.btn-primary,
     .btn.btn-dark,
     .btn.bg-gradient-dark,
-    .btn.btn-outline-dark {
+    .btn.btn-outline-dark,
+    .btn.so-primary,
+    .btn.bom-primary,
+    .btn.btn-material-primary {
         @apply border-transparent bg-gradient-to-r from-[#a36ec7] to-[#9259bc] text-white shadow-md shadow-purple-200 transition-all duration-200;
     }
 
+    .btn.btn-primary:hover,
+    .btn.btn-primary:focus-visible,
     .btn.btn-dark:hover,
     .btn.bg-gradient-dark:hover,
-    .btn.btn-outline-dark:hover {
+    .btn.btn-outline-dark:hover,
+    .btn.so-primary:hover,
+    .btn.bom-primary:hover,
+    .btn.btn-material-primary:hover {
         @apply from-[#9259bc] to-[#7c3aed] text-white shadow-lg;
     }
 
+    .btn.btn-primary:focus-visible,
+    .btn.btn-dark:focus-visible,
+    .btn.bg-gradient-dark:focus-visible,
+    .btn.btn-outline-dark:focus-visible,
+    .btn.so-primary:focus-visible,
+    .btn.bom-primary:focus-visible,
+    .btn.btn-material-primary:focus-visible {
+        @apply outline outline-2 outline-offset-2 outline-[#a36ec7];
+    }
+
     .btn.btn-action-view {
-        @apply border-transparent bg-gradient-to-r from-[#4b75e8] to-[#2563eb] text-white shadow-md shadow-blue-200 transition-all duration-200;
+        @apply border-transparent bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white shadow-md shadow-green-200 transition-all duration-200;
     }
 
     .btn.btn-action-view:hover,
     .btn.btn-action-view:focus-visible {
-        @apply from-[#3b5bdb] to-[#1d4ed8] text-white shadow-lg;
+        @apply from-[#16a34a] to-[#15803d] text-white shadow-lg;
     }
 
     .btn.btn-action-view:focus-visible {
-        @apply outline outline-2 outline-offset-2 outline-[#4b75e8];
+        @apply outline outline-2 outline-offset-2 outline-[#22c55e];
     }
 
     .btn.btn-action-edit {
-        @apply border-transparent bg-gradient-to-r from-[#a16dca] to-[#7c3aed] text-white shadow-md shadow-purple-200 transition-all duration-200;
+        @apply border-transparent bg-gradient-to-r from-[#4b75e8] to-[#2563eb] text-white shadow-md shadow-blue-200 transition-all duration-200;
     }
 
     .btn.btn-action-edit:hover,
     .btn.btn-action-edit:focus-visible {
-        @apply from-[#9259bc] to-[#6d28d9] text-white shadow-lg;
+        @apply from-[#3b5bdb] to-[#1d4ed8] text-white shadow-lg;
     }
 
     .btn.btn-action-edit:focus-visible {
-        @apply outline outline-2 outline-offset-2 outline-[#a16dca];
+        @apply outline outline-2 outline-offset-2 outline-[#4b75e8];
     }
 
     .btn.btn-action-delete {

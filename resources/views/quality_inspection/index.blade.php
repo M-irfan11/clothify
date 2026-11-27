@@ -8,7 +8,7 @@
         'final_product'     => 'bg-gradient-success',
     ];
 @endphp
-<div class="container-fluid py-4">
+<div class="container-fluid crud-page py-4">
     <div class="mb-3">
         <h4 class="mb-1">Quality Inspections</h4>
         <p class="text-sm text-secondary mb-0">Track incoming, in-process and final product inspections.</p>
@@ -18,7 +18,7 @@
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
 
-    <div class="card">
+    <div class="card crud-list-card">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">Quality Inspection List</h6>

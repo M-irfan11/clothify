@@ -10,8 +10,7 @@
         .bom-page h1 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); font-weight: 700; letter-spacing: -.03em; }
         .bom-page .bom-meta { color: var(--bom-muted); font-size: 13px; }
         .bom-page .bom-status { background: #fff3d9; border-radius: 999px; color: #966500; font-size: 11px; font-weight: 700; padding: 5px 10px; }
-        .bom-page .bom-primary { background: var(--bom-purple); border: 0; color: #fff; box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
-        .bom-page .bom-primary:hover { background: #5d318f; color: #fff; }
+        .bom-page .bom-primary { box-shadow: 0 5px 12px rgba(112, 65, 165, .2); }
         .bom-page .bom-stat { background: #fff; min-height: 112px; padding: 18px 20px; }
         .bom-page .bom-stat-icon { align-items: center; background: var(--bom-purple-soft); border-radius: 11px; color: var(--bom-purple); display: flex; height: 38px; justify-content: center; width: 38px; }
         .bom-page .bom-label { color: var(--bom-muted); font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }

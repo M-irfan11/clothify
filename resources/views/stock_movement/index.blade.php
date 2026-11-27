@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid crud-page py-4">
     <div class="mb-3">
         <h4 class="mb-1">Stock Movements</h4>
         <p class="text-sm text-secondary mb-0">Review material and product stock movements by warehouse.</p>
@@ -11,7 +11,7 @@
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
 
-    <div class="card">
+    <div class="card crud-list-card">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">Stock Movement List</h6>

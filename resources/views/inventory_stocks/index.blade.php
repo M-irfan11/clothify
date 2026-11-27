@@ -1,8 +1,8 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
-    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+<div class="container-fluid crud-page py-4">
+    <div class="crud-heading">
         <div>
             <h4 class="mb-1">Inventory Management</h4>
             <p class="text-sm text-secondary mb-0">Stock overview, warehouse-wise and material usage</p>
@@ -10,6 +10,7 @@
         <div class="d-flex align-items-center gap-2 text-sm">
             <span class="text-secondary">Status:</span>
             <span class="badge bg-gradient-success">Live</span>
+            <a href="{{ route('inventory_stocks.create') }}" class="btn bg-gradient-dark mb-0">Add Stock</a>
         </div>
     </div>
 
@@ -17,7 +18,7 @@
         <div class="alert alert-success text-white" role="alert">{{ session('success') }}</div>
     @endif
 
-    <div class="card shadow-sm">
+    <div class="card crud-list-card shadow-sm">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">Warehouse Stock</h6>
@@ -34,7 +35,6 @@
                         @endforeach
                     </select>
                 </form>
-                <a href="{{ route('inventory_stocks.create') }}" class="btn btn-sm bg-gradient-dark mb-0">Add Stock</a>
             </div>
         </div>
         <div class="card-body px-0 pb-2">

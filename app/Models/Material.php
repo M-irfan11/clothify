@@ -36,6 +36,7 @@ class Material extends Model
         'supplier_id',
         'material_code',
         'material_name',
+        'sales_order_number',
         'category',
         'unit',
         'unit_cost',
@@ -64,6 +65,11 @@ class Material extends Model
     public function productionOrderMaterials(): HasMany
     {
         return $this->hasMany(ProductionOrderMaterial::class);
+    }
+
+    public function inventoryStocks(): HasMany
+    {
+        return $this->hasMany(InventoryStock::class);
     }
 
     public function getCategoryLabelAttribute(): string

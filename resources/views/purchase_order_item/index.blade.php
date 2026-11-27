@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid crud-page py-4">
     <div class="mb-3">
         <h4 class="mb-1">Purchase Order Items</h4>
         <p class="text-sm text-secondary mb-0">Manage material lines of purchase orders.</p>
@@ -14,7 +14,7 @@
         <div class="alert alert-danger text-white" role="alert">{{ session('error') }}</div>
     @endif
 
-    <div class="card">
+    <div class="card crud-list-card">
         <div class="card-header d-flex align-items-center justify-content-between bg-white border-0 px-4 pt-4 pb-3">
             <div>
                 <h6 class="mb-1">PO Item List</h6>
