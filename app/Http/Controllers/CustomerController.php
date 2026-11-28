@@ -14,12 +14,12 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         //
-          $customers = Customer::query()
+        $customers = Customer::query()
             ->when($request->search, function ($q, $search) {
                 $q->where(function ($q) use ($search) {
                     $q->where('customer_name', 'like', "%{$search}%")
-                      ->orWhere('customer_code', 'like', "%{$search}%")
-                      ->orWhere('phone', 'like', "%{$search}%");
+                        ->orWhere('customer_code', 'like', "%{$search}%")
+                        ->orWhere('phone', 'like', "%{$search}%");
                 });
             })
             ->when($request->customer_type, fn ($q, $type) => $q->where('customer_type', $type))
@@ -28,10 +28,10 @@ class CustomerController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-             return view('customers.index', [
+        return view('customers.index', [
             'customers' => $customers,
-            'types'     => Customer::TYPES,
-             ]);
+            'types' => Customer::TYPES,
+        ]);
 
     }
 
@@ -41,7 +41,7 @@ class CustomerController extends Controller
     public function create()
     {
         //
-        return view('customers.create',['types'=> Customer::TYPES]);
+        return view('customers.create', ['types' => Customer::TYPES]);
     }
 
     /**
@@ -53,8 +53,8 @@ class CustomerController extends Controller
         Customer::create($this->validated($request));
 
         return redirect()->route('customers.index')
-            ->with('success','Customer Created Successfully.');
-            
+            ->with('success', 'Customer Created Successfully.');
+
     }
 
     /**
@@ -63,7 +63,7 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
         //
-        return view('customers.show',compact('customer'));
+        return view('customers.show', compact('customer'));
     }
 
     /**
@@ -72,8 +72,8 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
-        return view(customers.edit,[
-            'customer'=> $customer,
+        return view(customers.edit, [
+            'customer' => $customer,
             'types' => Customer::TYPES,
         ]);
     }
@@ -87,9 +87,7 @@ class CustomerController extends Controller
         $customer->update($this->validated(request, $customer));
 
         return redirect()->route('customers.index')
-        ->with('success', 'Customer updated Successfully');
-
-        
+            ->with('success', 'Customer updated Successfully');
 
     }
 
@@ -99,28 +97,28 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
-         $customer->delete(); // soft delete
+        $customer->delete(); // soft delete
 
         return redirect()->route('customers.index')
             ->with('success', 'Customer successfully deleted.');
     }
 
-     private function validated(Request $request, ?Customer $customer = null): array
+    private function validated(Request $request, ?Customer $customer = null): array
     {
         return $request->validate([
-            'customer_code'   => [
+            'customer_code' => [
                 'required', 'string', 'max:30',
                 Rule::unique('customers', 'customer_code')->ignore($customer?->id),
             ],
-            'customer_name'   => ['required', 'string', 'max:30'],
-            'customer_type'   => ['required', Rule::in(Customer::TYPES)],
-            'contact_person'  => ['nullable', 'string', 'max:100'],
-            'phone'           => ['required', 'string', 'max:20'],
-            'email'           => ['nullable', 'email', 'max:150'],
-            'address'         => ['required', 'string', 'max:255'],
-            'buyer_referance' => ['required', 'string', 'max:100'],
-            'credit_limit'    => ['nullable', 'numeric', 'min:0', 'max:9999999999999999.99'],
-            'status'          => ['required', Rule::in(['active', 'inactive'])],
+            'customer_name' => ['required', 'string', 'max:30'],
+            'customer_type' => ['required', Rule::in(Customer::TYPES)],
+            'contact_person' => ['nullable', 'string', 'max:100'],
+            'phone' => ['required', 'string', 'max:20'],
+            'email' => ['nullable', 'email', 'max:150'],
+            'address' => ['required', 'string', 'max:255'],
+            'buyer_reference' => ['required', 'string', 'max:100'],
+            'credit_limit' => ['nullable', 'numeric', 'min:0', 'max:9999999999999999.99'],
+            'status' => ['required', Rule::in(['active', 'inactive'])],
         ]);
     }
 }

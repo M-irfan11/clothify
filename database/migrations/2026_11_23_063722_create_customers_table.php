@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone', 20);
             $table->string('email', 150)->nullable();
             $table->string('address', 255);
-            $table->string('buyer_referance', 100);
+            $table->string('buyer_reference', 100);
             $table->decimal('credit_limit', 18, 2)->default(0);
             $table->string('status', 20)->default('active');
 

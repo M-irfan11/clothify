@@ -14,6 +14,7 @@ use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\PurchaseOrderItemController;
 use App\Http\Controllers\QualityInspectionController;
 use App\Http\Controllers\SaleOrderController;
+use App\Http\Controllers\SaleOrderItemController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -40,6 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('sales', SaleOrderController::class)
         ->parameters(['sales' => 'saleOrder'])
         ->names('sales_orders');
+    Route::resource('sales_orders.items', SaleOrderItemController::class)
+        ->scoped()
+        ->names('sales_orders.items');
+
     Route::resource('suppliers', SupplierController::class);
     Route::resource('customers', CustomerController::class);
     Route::resource('materials', MaterialController::class);
@@ -65,6 +70,7 @@ Route::middleware('auth')->group(function () {
             'materials' => 'productionOrderMaterial',
         ])
         ->names('production-orders.materials');
+
     Route::resource('quality_inspections', QualityInspectionController::class);
 });
 

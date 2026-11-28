@@ -14,10 +14,10 @@ class Customer extends Model
     public const TYPES = ['wholesale', 'retail', 'online', 'corporete', 'export'];
 
     public const STATUSES = [
-    'active'   => 'Active',
-    'inactive' => 'Inactive',
-    'blocked'  => 'Blocked',
-];
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+        'blocked' => 'Blocked',
+    ];
 
     protected $fillable = [
         'customer_code',
@@ -27,7 +27,7 @@ class Customer extends Model
         'phone',
         'email',
         'address',
-        'buyer_referance',
+        'buyer_reference',
         'credit_limit',
         'status',
     ];
