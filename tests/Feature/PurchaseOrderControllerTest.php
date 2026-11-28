@@ -24,6 +24,7 @@ class PurchaseOrderControllerTest extends TestCase
         ]);
         PurchaseOrder::create([
             'po_no' => 'PO-PAGE-001',
+            'so_no' => 'SO-PAGE-001',
             'supplier_id' => 1,
             'warehouse_id' => $warehouse->id,
             'order_date' => '2026-11-21',
@@ -42,6 +43,7 @@ class PurchaseOrderControllerTest extends TestCase
             ->assertOk()
             ->assertViewIs('purchase_orders.index')
             ->assertSee('PO-PAGE-001')
+            ->assertSee('SO-PAGE-001')
             ->assertSee('Pagination Warehouse');
     }
 }

@@ -65,6 +65,7 @@ class PurchaseOrderItemTest extends TestCase
         ]);
         $purchaseOrder = PurchaseOrder::create([
             'po_no' => 'PO-UI-001',
+            'so_no' => 'SO-UI-001',
             'supplier_id' => $supplier->id,
             'warehouse_id' => $warehouse->id,
             'order_date' => '2026-11-21',

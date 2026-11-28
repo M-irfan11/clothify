@@ -7,7 +7,9 @@ use App\Models\Material;
 use App\Models\ProductVariant;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class BomItemController extends Controller
@@ -32,11 +34,32 @@ class BomItemController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $bomItem = bom_item::create($this->validated($request));
+        $data = $request->validate($this->bulkRules());
+        $materialIds = collect($data['materials'])->pluck('material_id');
+
+        if (bom_item::query()
+            ->where('product_variant_id', $data['product_variant_id'])
+            ->whereIn('material_id', $materialIds)
+            ->exists()) {
+            throw ValidationException::withMessages([
+                'materials' => 'One or more selected materials are already linked to this product variant.',
+            ]);
+        }
+
+        DB::transaction(function () use ($data): void {
+            foreach ($data['materials'] as $material) {
+                bom_item::create([
+                    'product_variant_id' => $data['product_variant_id'],
+                    'material_id' => $material['material_id'],
+                    'quantity_per_unit' => $material['quantity_per_unit'],
+                    'wastage_percent' => $material['wastage_percent'] ?? 0,
+                ]);
+            }
+        });
 
         return redirect()
-            ->route('bom_items.show', $bomItem)
-            ->with('success', 'BOM item created successfully.');
+            ->route('bom_items.index', ['product_variant_id' => $data['product_variant_id']])
+            ->with('success', 'Recipe materials created successfully.');
     }
 
     public function show(bom_item $bom_item): View
@@ -101,6 +124,17 @@ class BomItemController extends Controller
             'material_id' => ['required', 'integer', 'exists:materials,id', $materialRule],
             'quantity_per_unit' => ['required', 'numeric', 'min:0.0001', 'max:9999999999.9999'],
             'wastage_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
+        ];
+    }
+
+    private function bulkRules(): array
+    {
+        return [
+            'product_variant_id' => ['required', 'integer', 'exists:product_variants,id'],
+            'materials' => ['required', 'array', 'min:1'],
+            'materials.*.material_id' => ['required', 'integer', 'distinct', 'exists:materials,id'],
+            'materials.*.quantity_per_unit' => ['required', 'numeric', 'min:0.0001', 'max:9999999999.9999'],
+            'materials.*.wastage_percent' => ['nullable', 'numeric', 'min:0', 'max:100'],
         ];
     }
 }

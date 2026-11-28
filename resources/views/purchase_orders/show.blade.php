@@ -37,6 +37,11 @@
                     <p class="text-sm font-weight-bold mb-0">{{ $purchaseOrder->warehouse->name ?? '—' }}</p>
                 </div>
 
+                <div class="col-md-6 mb-3">
+                    <p class="text-xs text-secondary text-uppercase mb-1">SO No</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $purchaseOrder->so_no }}</p>
+                </div>
+
                 <div class="col-md-4 mb-3">
                     <p class="text-xs text-secondary text-uppercase mb-1">Order Date</p>
                     <p class="text-sm mb-0">{{ $purchaseOrder->order_date->format('d M Y') }}</p>

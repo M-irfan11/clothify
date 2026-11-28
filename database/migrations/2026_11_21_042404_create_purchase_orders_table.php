@@ -19,6 +19,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('warehouse_id'); // receiving warehouse
 
+            $table->string('so_no', 30)->unique();
+
             $table->date('order_date');
             $table->date('expected_date');
             $table->date('received_date')->nullable();

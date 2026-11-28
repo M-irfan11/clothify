@@ -35,15 +35,20 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="warehouse_id" class="form-label">Receiving Warehouse</label>
-                        <select id="warehouse_id" name="warehouse_id" class="form-select @error('warehouse_id') is-invalid @enderror" required>
+                        <select id="warehouse_id" name="warehouse_name" class="form-select @error('warehouse_id') is-invalid @enderror" required>
                             <option value="">Select warehouse</option>
                             @foreach ($warehouses as $warehouse)
                                 <option value="{{ $warehouse->id }}" @selected((string) old('warehouse_id', $purchaseOrder->warehouse_id) === (string) $warehouse->id)>
-                                    {{ $warehouse->name }}
+                                    {{ $warehouse->warehouse_name }}
                                 </option>
                             @endforeach
                         </select>
                         @error('warehouse_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="so_no" class="form-label">SO No</label>
+                        <input id="so_no" name="so_no" type="text" maxlength="30" value="{{ old('so_no', $purchaseOrder->so_no) }}" class="form-control @error('so_no') is-invalid @enderror" required>
+                        @error('so_no') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="order_date" class="form-label">Order Date</label>

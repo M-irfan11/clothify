@@ -45,6 +45,11 @@
                         @error('warehouse_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="col-md-6 mb-3">
+                        <label for="so_no" class="form-label">SO No</label>
+                        <input id="so_no" name="so_no" type="text" maxlength="30" value="{{ old('so_no') }}" class="form-control @error('so_no') is-invalid @enderror" required>
+                        @error('so_no') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="order_date" class="form-label">Order Date</label>
                         <input id="order_date" name="order_date" type="date" value="{{ old('order_date', now()->format('Y-m-d')) }}" class="form-control @error('order_date') is-invalid @enderror" required>
                         @error('order_date') <div class="invalid-feedback">{{ $message }}</div> @enderror

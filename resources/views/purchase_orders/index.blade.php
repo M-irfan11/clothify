@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid crud-page py-4">
-    <div class="crud-heading">
+    <div class="d-flex justify-content-between align-items-end mb-3">
         <div>
             <div class="crud-eyebrow">Procurement</div>
             <h4 class="mb-1">Purchase Orders</h4>
@@ -33,6 +33,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PO No</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supplier</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Warehouse</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SO No</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payment</th>
@@ -54,6 +55,7 @@
                                     <p class="text-xs text-secondary mb-0">{{ $purchaseOrder->supplier->supplier_code ?? '' }}</p>
                                 </td>
                                 <td class="text-sm">{{ $purchaseOrder->warehouse->warehouse_name ?? '—' }}</td>
+                                <td class="text-sm">{{ $purchaseOrder->so_no }}</td>
                                 <td class="text-sm">{{ $purchaseOrder->expected_date->format('d M Y') }}</td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">{{ number_format($purchaseOrder->total_amount, 2) }}</p>
@@ -81,7 +83,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8" class="text-center text-secondary py-4">No purchase orders found.</td>
+                                <td colspan="9" class="text-center text-secondary py-4">No purchase orders found.</td>
                             </tr>
                         @endforelse
                     </tbody>

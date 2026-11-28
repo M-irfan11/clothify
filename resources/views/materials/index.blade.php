@@ -5,7 +5,7 @@
     <div class="materials-heading d-flex flex-wrap align-items-start justify-content-between gap-3 mb-4">
         <div>
             <h4 class="mb-1">Materials</h4>
-            <p class="text-sm text-secondary mb-0">Raw materials, trims &amp; reorder settings manage করুন</p>
+            <p class="text-sm text-secondary mb-0">Raw materials, trims &amp; reorder settings manage</p>
         </div>
         <div class="d-flex gap-2">
             <button type="button" class="btn btn-material-outline mb-0">Export Excel</button>

@@ -97,6 +97,11 @@ class PurchaseOrderController extends Controller
                 Rule::unique('purchase_orders', 'po_no')->ignore($id),
             ],
 
+            'so_no' => [
+                'required', 'string', 'max:30',
+                Rule::unique('purchase_orders', 'so_no')->ignore($id),
+            ],
+
             'supplier_id' => ['required', 'integer', 'exists:suppliers,id'],
             'warehouse_id' => ['required', 'integer', 'exists:warehouses,id'],
 

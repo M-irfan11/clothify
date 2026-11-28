@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container-fluid crud-page py-4">
-    <div class="crud-heading">
+    <div class="d-flex justify-content-between align-items-end">
         <div>
-            <div class="crud-eyebrow">CRM</div>
+            
             <h4 class="mb-1">Customers</h4>
             <p class="text-sm text-secondary mb-0">Manage customer contacts and credit details.</p>
         </div>
-        <a href="{{ route('customers.create') }}" class="btn bg-gradient-dark mb-0">
+        <a href="{{ route('customers.create') }}" class="btn btn-sm bg-gradient-dark mb-3  ">
             <span class="material-symbols-rounded align-middle me-1" style="font-size: 18px;">add</span>
             Add Customer
         </a>

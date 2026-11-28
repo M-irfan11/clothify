@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid crud-page py-4">
-    <div class="crud-heading">
+    <div class="d-flex justify-content-between align-items-end mb-3">
         <div>
             <div class="crud-eyebrow">Procurement</div>
             <h4 class="mb-1">Suppliers</h4>
